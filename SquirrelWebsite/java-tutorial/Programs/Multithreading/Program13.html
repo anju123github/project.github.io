@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Squirrel-Codes</title>
+    <link rel="stylesheet" href="../../../index.css">
+    <link rel="shortcut icon" href="../../../images/logo-dark.svg" type="image/x-icon">
+</head>
+
+<body>
+
+    <header class="sticky">
+        <a href="/index.html" class="webname">
+            <img src="../../../images/logo-dark.svg" alt="">
+            Squirrel<span class="primary-color">Codes</span>
+        </a>
+        <nav>
+            <a href="../../../index.html">Home</a>
+            <a href="../../../dbms-tutorial">DBMS</a>
+            <a href="../../plsql-tutorial/plsql1.html" class="active">PL/SQL</a>
+            <a href="../../java.html">Java</a>
+            <a href="../../../about.html">About</a>
+        </nav>
+    </header>
+
+    <h2 class="center tutorial">Java Tutorial</h2>
+    <hr>
+    <div class="content-box">
+        <div class="sidebar">
+            <a class="primary-color">Programs</a>
+            <a href="../../Programs/Multithreading/Program1.html" class="sidelinks sideactive">Program 1</a>
+            <a href="../../Programs/Multithreading/Program2.html" class="sidelinks sideactive">Program 2</a>
+            <a href="../../Programs/Multithreading/Program3.html" class="sidelinks sideactive">Program 3</a>
+            <a href="../../Programs/Multithreading/Program4.html" class="sidelinks sideactive">Program 4</a>
+            <a href="../../Programs/Multithreading/Program5.html" class="sidelinks sideactive">Program 5</a>
+            <a href="../../Programs/Multithreading/Program6.html" class="sidelinks sideactive">Program 6</a>
+            <a href="../../Programs/Multithreading/Program7.html" class="sidelinks sideactive">Program 7</a>
+            <a href="../../Programs/Multithreading/Program8.html" class="sidelinks sideactive">Program 8</a>
+            <a href="../../Programs/Multithreading/Program9.html" class="sidelinks sideactive">Program 9</a>
+            <a href="../../Programs/Multithreading/Program10.html" class="sidelinks sideactive">Program 10</a>
+            <a href="../../Programs/Multithreading/Program11.html" class="sidelinks sideactive">Program 11</a>
+            <a href="../../Programs/Multithreading/Program12.html" class="sidelinks sideactive">Program 12</a>
+            <a href="../../Programs/Multithreading/Program13.html" class="sidelinks sideactive">Program 13</a>
+        </div>
+        <div class="content">
+            <!-- topic name -->
+            <h3 class="main">Multithreading</h3>
+
+            <!-- Programs list -->
+            <p>13. Create the program to create multiple threads, show an example of join and yield methods.</p>
+            <h3>Code</h3>
+            <pre class="code"><code class="language-java">
+                
+class MyThread extends Thread {
+    public MyThread(String name) {
+        super(name);
+    }
+
+    public void run() {
+        for (int i = 1; i <= 5; i++) {
+            System.out.println(Thread.currentThread().getName() + ": " + i);
+
+            // Demonstrate the use of yield method
+            Thread.yield();
+        }
+    }
+}
+
+public class ThreadExample {
+    public static void main(String[] args) {
+        // Create three threads
+        MyThread thread1 = new MyThread("Thread 1");
+        MyThread thread2 = new MyThread("Thread 2");
+        MyThread thread3 = new MyThread("Thread 3");
+
+        // Start the threads
+        thread1.start();
+        thread2.start();
+        thread3.start();
+
+        try {
+            // Demonstrate the use of join method
+            thread1.join();
+            thread2.join();
+            thread3.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Main thread finished.");
+    }
+}
+</code></pre>
+<h3>Output</h3>
+<pre class="code" style="padding: 2%;">
+Thread 1: 1
+Thread 2: 1
+Thread 3: 1
+Thread 1: 2
+Thread 2: 2
+Thread 3: 2
+Thread 1: 3
+Thread 2: 3
+Thread 3: 3
+Thread 1: 4
+Thread 2: 4
+Thread 3: 4
+Thread 1: 5
+Thread 2: 5
+Thread 3: 5
+Main thread finished.
+</pre>
+            <!-- previous next buttons -->
+            <!-- <div class="toggle-page-btns">
+                <a href="plsql2.html" class="button">Next &rarr;</a>
+            </div> -->
+        </div>
+    </div>
+    <footer>
+        Copyright &copy; 2023 Squirrel<span class="primary-color">Codes</span>
+    </footer>
+</body>
+
+</html>

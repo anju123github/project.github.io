@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Squirrel-Codes</title>
+    <link rel="stylesheet" href="../../../index.css">
+    <link rel="shortcut icon" href="../../../images/logo-dark.svg" type="image/x-icon">
+</head>
+
+<body>
+
+    <header class="sticky">
+        <a href="/index.html" class="webname">
+            <img src="../../../images/logo-dark.svg" alt="">
+            Squirrel<span class="primary-color">Codes</span>
+        </a>
+        <nav>
+            <a href="../../../index.html">Home</a>
+            <a href="../../../dbms-tutorial">DBMS</a>
+            <a href="../../plsql-tutorial/plsql1.html" class="active">PL/SQL</a>
+            <a href="../../java.html">Java</a>
+            <a href="../../../about.html">About</a>
+        </nav>
+    </header>
+
+    <h2 class="center tutorial">Java Tutorial</h2>
+    <hr>
+    <div class="content-box">
+        <div class="sidebar">
+            <a class="primary-color">Programs</a>
+            <a href="../../Programs/Multithreading/Program1.html" class="sidelinks sideactive">Program 1</a>
+            <a href="../../Programs/Multithreading/Program2.html" class="sidelinks sideactive">Program 2</a>
+            <a href="../../Programs/Multithreading/Program3.html" class="sidelinks sideactive">Program 3</a>
+            <a href="../../Programs/Multithreading/Program4.html" class="sidelinks sideactive">Program 4</a>
+            <a href="../../Programs/Multithreading/Program5.html" class="sidelinks sideactive">Program 5</a>
+            <a href="../../Programs/Multithreading/Program6.html" class="sidelinks sideactive">Program 6</a>
+            <a href="../../Programs/Multithreading/Program7.html" class="sidelinks sideactive">Program 7</a>
+            <a href="../../Programs/Multithreading/Program8.html" class="sidelinks sideactive">Program 8</a>
+            <a href="../../Programs/Multithreading/Program9.html" class="sidelinks sideactive">Program 9</a>
+            <a href="../../Programs/Multithreading/Program10.html" class="sidelinks sideactive">Program 10</a>
+            <a href="../../Programs/Multithreading/Program11.html" class="sidelinks sideactive">Program 11</a>
+            <a href="../../Programs/Multithreading/Program12.html" class="sidelinks sideactive">Program 12</a>
+            <a href="../../Programs/Multithreading/Program13.html" class="sidelinks sideactive">Program 13</a>
+        </div>
+        <div class="content">
+            <!-- topic name -->
+            <h3 class="main">Multithreading</h3>
+
+            <!-- Programs list -->
+            <p>1. Write a Java program to create a basic Java thread that prints "Hello, World!" when executed.</p>
+            <h3>Code</h3>
+            <pre class="code"><code class="language-java">
+                public class HelloWorldThread extends Thread {
+                    public void run() {
+                       System.out.println("Hello, World!");
+                    }
+                
+                    public static void main(String[] args) {
+                       HelloWorldThread helloThread = new HelloWorldThread();
+                        helloThread.start();
+                    }
+                }
+</code></pre>
+<h3>Output</h3>
+<pre class="code" style="padding: 2%;">
+    Hello, World!
+</pre>
+            <!-- previous next buttons -->
+            <!-- <div class="toggle-page-btns">
+                <a href="plsql2.html" class="button">Next &rarr;</a>
+            </div> -->
+        </div>
+    </div>
+    <footer>
+        Copyright &copy; 2023 Squirrel<span class="primary-color">Codes</span>
+    </footer>
+</body>
+
+</html>

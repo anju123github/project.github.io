@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Squirrel-Codes</title>
+    <link rel="stylesheet" href="../../../index.css">
+    <link rel="shortcut icon" href="../../../images/logo-dark.svg" type="image/x-icon">
+</head>
+
+<body>
+
+    <header class="sticky">
+        <a href="/index.html" class="webname">
+            <img src="../../../images/logo-dark.svg" alt="">
+            Squirrel<span class="primary-color">Codes</span>
+        </a>
+        <nav>
+            <a href="../../../index.html">Home</a>
+            <a href="../../../dbms-tutorial">DBMS</a>
+            <a href="../../plsql-tutorial/" class="active">PL/SQL</a>
+            <a href="../../java.html">Java</a>
+            <a href="../../../about.html">About</a>
+        </nav>
+    </header>
+
+    <h2 class="center tutorial">Java Tutorial</h2>
+    <hr>
+    <div class="content-box">
+        <div class="sidebar">
+            <a class="primary-color">Programs</a>
+            <a href="../../Programs/Interface/Program1.html" class="sidelinks sideactive">Program 1</a>
+            <a href="../../Programs/Interface/Program2.html" class="sidelinks sideactive">Program 2</a>
+            <a href="../../Programs/Interface/Program3.html" class="sidelinks sideactive">Program 3</a>
+            <a href="../../Programs/Interface/Program4.html" class="sidelinks sideactive">Program 4</a>
+            <a href="../../Programs/Interface/Program5.html" class="sidelinks sideactive">Program 5</a>
+            <a href="../../Programs/Interface/Program6.html" class="sidelinks sideactive">Program 6</a>
+            <a href="../../Programs/Interface/Program7.html" class="sidelinks sideactive">Program 7</a>
+            <a href="../../Programs/Interface/Program8.html" class="sidelinks sideactive">Program 8</a>
+            <a href="../../Programs/Interface/Program9.html" class="sidelinks sideactive">Program 9</a>
+            <a href="../../Programs/Interface/Program10.html" class="sidelinks sideactive">Program 10</a>
+            <a href="../../Programs/Interface/Program11.html" class="sidelinks sideactive">Program 11</a>
+           
+           
+        
+        </div>
+        <div class="content">
+            <!-- topic name -->
+            <h3 class="main">Interface</h3>
+
+            <!-- Programs list -->
+            <p>4. Write a Java programming to create a banking system with three classes - Bank, Account, SavingsAccount, and CurrentAccount. The bank should have a list of accounts and methods for adding them. Accounts should be an interface with methods to deposit, withdraw, calculate interest, and view balances. SavingsAccount and CurrentAccount should implement the Account interface and have their own unique methods.</p>
+            <h3>Code</h3>
+            <pre class="code"><code class="language-java">
+                
+// Interface for common account operations
+interface Account {
+    void deposit(double amount);
+    void withdraw(double amount);
+    double calculateInterest();
+    double getBalance();
+}
+                                        
+// SavingsAccount class implementing Account interface
+class SavingsAccount implements Account {
+    private double balance;
+    private double interestRate;
+                                        
+    public SavingsAccount(double initialBalance, double interestRate) {
+        this.balance = initialBalance;
+        this.interestRate = interestRate;
+    }
+                                        
+                                            
+    public void deposit(double amount) {
+        balance += amount;
+    }
+                                        
+    
+    public void withdraw(double amount) {
+        if (amount <= balance) {
+            balance -= amount;
+        } else {
+            System.out.println("Insufficient funds!");
+        }
+    }
+                                        
+    
+    public double calculateInterest() {
+        return balance * interestRate;
+    }
+                                        
+    
+    public double getBalance() {
+        return balance;
+    }
+                                        
+    // Additional method specific to SavingsAccount
+    public void applyBonus() {
+        balance += 10; // Just an example, you can implement your own logic
+    }
+}
+                                        
+// CurrentAccount class implementing Account interface
+class CurrentAccount implements Account {
+    private double balance;
+    private double overdraftLimit;
+                                        
+    public CurrentAccount(double initialBalance, double overdraftLimit) {
+        this.balance = initialBalance;
+        this.overdraftLimit = overdraftLimit;
+    }
+                                        
+                                            
+    public void deposit(double amount) {
+        balance += amount;
+    }
+                                        
+                                            
+    public void withdraw(double amount) {
+        if (amount <= balance + overdraftLimit) {
+            balance -= amount;
+        } else {
+            System.out.println("Insufficient funds!");
+        }
+    }
+                                        
+    
+    public double calculateInterest() {
+        // Current accounts typically don't earn interest
+        return 0;
+    }
+                                        
+    
+    public double getBalance() {
+        return balance;
+    }
+                                        
+    // Additional method specific to CurrentAccount
+    public void issueOverdraft() {
+        // Logic for issuing an overdraft
+        System.out.println("Overdraft issued!");
+    }
+}
+                                        
+// Bank class to manage accounts
+class Bank {
+    private Account[] accounts;
+    private int numAccounts;
+
+    public Bank(int maxAccounts) {
+        accounts = new Account[maxAccounts];
+        numAccounts = 0;
+    }
+                                        
+    public void addAccount(Account account) {
+        if (numAccounts < accounts.length) {
+            accounts[numAccounts++] = account;
+        } else {
+            System.out.println("Cannot add more accounts. Bank is full.");
+        }
+    }
+                                        
+    public void displayAccountDetails() {
+        System.out.println("Bank Accounts:");
+        for (int i = 0; i < numAccounts; i++) {
+            System.out.println("Account " + (i + 1) + ": Balance = " + accounts[i].getBalance());
+        }
+    }
+}
+                                        
+// Main class
+public class BankingSystemExample {
+    public static void main(String[] args) {
+        // Create a bank
+        Bank myBank = new Bank(5);
+                                        
+        // Create accounts and add them to the bank
+        SavingsAccount savingsAccount = new SavingsAccount(1000, 0.05);
+        CurrentAccount currentAccount = new CurrentAccount(2000, 500);
+                                        
+        myBank.addAccount(savingsAccount);
+        myBank.addAccount(currentAccount);
+                                        
+        // Perform operations on accounts
+        savingsAccount.deposit(500);
+        currentAccount.withdraw(300);
+                                        
+        // Display account details
+        myBank.displayAccountDetails();
+    }
+} 
+</code></pre>
+<h3>Output</h3>
+<pre class="code" style="padding: 2%;">
+Bank Accounts: 
+
+Account 1: Balance = 1705.0 
+
+Account 2: Balance = 1700.0 
+</pre>
+            <!-- previous next buttons -->
+            <!-- <div class="toggle-page-btns">
+                <a href="plsql2.html" class="button">Next &rarr;</a>
+            </div> -->
+        </div>
+    </div>
+    <footer>
+        Copyright &copy; 2023 Squirrel<span class="primary-color">Codes</span>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Squirrel-Codes</title>
+    <link rel="stylesheet" href="../../../index.css">
+    <link rel="shortcut icon" href="../../../images/logo-dark.svg" type="image/x-icon">
+</head>
+
+<body>
+
+    <header class="sticky">
+        <a href="/index.html" class="webname">
+            <img src="../../../images/logo-dark.svg" alt="">
+            Squirrel<span class="primary-color">Codes</span>
+        </a>
+        <nav>
+            <a href="../../../index.html">Home</a>
+            <a href="../../../dbms-tutorial">DBMS</a>
+            <a href="../../plsql-tutorial/plsql1.html" class="active">PL/SQL</a>
+            <a href="../../java.html">Java</a>
+            <a href="../../../about.html">About</a>
+        </nav>
+    </header>
+
+    <h2 class="center tutorial">Java Tutorial</h2>
+    <hr>
+    <div class="content-box">
+        <div class="sidebar">
+            <a class="primary-color">Programs</a>
+            <a href="../../Programs/JDBC/Program1.html" class="sidelinks sideactive">Program 1</a>
+            <a href="../../Programs/JDBC/Program2.html" class="sidelinks sideactive">Program 2</a>
+            <a href="../../Programs/JDBC/Program3.html" class="sidelinks sideactive">Program 3</a>
+            <a href="../../Programs/JDBC/Program4.html" class="sidelinks sideactive">Program 4</a>
+            <a href="../../Programs/JDBC/Program5.html" class="sidelinks sideactive">Program 5</a>
+            <a href="../../Programs/JDBC/Program6.html" class="sidelinks sideactive">Program 6</a>
+            <a href="../../Programs/JDBC/Program7.html" class="sidelinks sideactive">Program 7</a>
+            <a href="../../Programs/JDBC/Program8.html" class="sidelinks sideactive">Program 8</a>
+            <a href="../../Programs/JDBC/Program9.html" class="sidelinks sideactive">Program 9</a>
+           
+        </div>
+        <div class="content">
+            <!-- topic name -->
+            <h3 class="main">JDBC</h3>
+
+            <!-- Programs list -->
+            <p>8. Create a Scrollable Updateable Resultset and insert a new row, update an existing row and delete the row from Resultset and also the changes should be made to the database also. The values should be inserted, updated and deleted by the user only.</p>
+            <h3>Code</h3>
+            <pre class="code"><code class="language-java">
+                
+import java.sql.*;
+import java.util.Scanner;
+
+class ScrollableResultSetExample {
+    public static void main(String[] args) {
+        String url = "jdbc:mysql://localhost:3306/chatTest";
+        String username = "root";
+        String password = "";
+
+        try {
+            Connection connection = DriverManager.getConnection(url, username, password);
+            Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+
+            // Create a ResultSet that is scrollable and updatable
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM chats");
+
+            System.out.println("All rows before operations :");
+            while (resultSet.next()) {
+                System.out.println("Id = " + resultSet.getInt("id") + ", username = " + resultSet.getString("username") + ", message = " + resultSet.getString("message"));
+            }
+
+            Scanner scanner = new Scanner(System.in);
+
+            // Insert a new row
+            System.out.println("Enter values for new row:");
+            System.out.print("Id: ");
+            int id = scanner.nextInt();
+            scanner.nextLine();
+            System.out.print("Username: ");
+            String usernameValue = scanner.nextLine();
+            System.out.print("Message: ");
+            String message = scanner.nextLine();
+
+            resultSet.moveToInsertRow();
+            resultSet.updateInt("id", id);
+            resultSet.updateString("username", usernameValue);
+            resultSet.updateString("message", message);
+            resultSet.insertRow();
+
+            // Update an existing row
+            System.out.println("Enter values for row to update:");
+            System.out.print("Id: ");
+            int updateId = scanner.nextInt();
+            scanner.nextLine();
+            System.out.print("New message: ");
+            String newMessage = scanner.nextLine();
+
+            resultSet.beforeFirst();
+            while (resultSet.next()) {
+                if (resultSet.getInt("id") == updateId) {
+                    resultSet.updateString("message", newMessage);
+                    resultSet.updateRow();
+                    break;
+                }
+            }
+
+            // Delete a row
+            System.out.println("Enter id of row to delete:");
+            int deleteId = scanner.nextInt();
+            scanner.nextLine();
+
+            resultSet.beforeFirst();
+            while (resultSet.next()) {
+                if (resultSet.getInt("id") == deleteId) {
+                    resultSet.deleteRow();
+                    break;
+                }
+            }
+
+            scanner.close();
+
+            System.out.println("All rows after operations :");
+            resultSet.beforeFirst();
+            while (resultSet.next()) {
+                System.out.println("Id = " + resultSet.getInt("id") + ", username = " + resultSet.getString("username") + ", message = " + resultSet.getString("message"));
+            }
+
+        } catch (SQLException e) {
+            System.out.println("SQLException: " + e.getMessage());
+        } catch (Exception e){
+            System.out.println("Exception: " + e.getMessage());
+        }
+    }
+}
+</code></pre>
+<h3>Output</h3>
+<pre class="code" style="padding: 2%;">
+    <img src="8.png">
+</pre>
+            <!-- previous next buttons -->
+            <!-- <div class="toggle-page-btns">
+                <a href="plsql2.html" class="button">Next &rarr;</a>
+            </div> -->
+        </div>
+    </div>
+    <footer>
+        Copyright &copy; 2023 Squirrel<span class="primary-color">Codes</span>
+    </footer>
+</body>
+
+</html>

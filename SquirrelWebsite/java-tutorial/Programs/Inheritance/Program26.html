@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Squirrel-Codes</title>
+    <link rel="stylesheet" href="../../../index.css">
+    <link rel="shortcut icon" href="../../../images/logo-dark.svg" type="image/x-icon">
+</head>
+
+<body>
+
+    <header class="sticky">
+        <a href="/index.html" class="webname">
+            <img src="../../../images/logo-dark.svg" alt="">
+            Squirrel<span class="primary-color">Codes</span>
+        </a>
+        <nav>
+            <a href="../../../index.html">Home</a>
+            <a href="../../../dbms-tutorial">DBMS</a>
+            <a href="../../plsql-tutorial/" class="active">PL/SQL</a>
+            <a href="../../java.html">Java</a>
+            <a href="../../../about.html">About</a>
+        </nav>
+    </header>
+
+    <h2 class="center tutorial">Java Tutorial</h2>
+    <hr>
+    <div class="content-box">
+        <div class="sidebar">
+            <a class="primary-color">Programs</a>
+            <a href="../../Programs/Inheritance/Program1.html" class="sidelinks sideactive">Program 1</a>
+            <a href="../../Programs/Inheritance/Program2.html" class="sidelinks sideactive">Program 2</a>
+            <a href="../../Programs/Inheritance/Program3.html" class="sidelinks sideactive">Program 3</a>
+            <a href="../../Programs/Inheritance/Program4.html" class="sidelinks sideactive">Program 4</a>
+            <a href="../../Programs/Inheritance/Program5.html" class="sidelinks sideactive">Program 5</a>
+            <a href="../../Programs/Inheritance/Program6.html" class="sidelinks sideactive">Program 6</a>
+            <a href="../../Programs/Inheritance/Program7.html" class="sidelinks sideactive">Program 7</a>
+            <a href="../../Programs/Inheritance/Program8.html" class="sidelinks sideactive">Program 8</a>
+            <a href="../../Programs/Inheritance/Program9.html" class="sidelinks sideactive">Program 9</a>
+            <a href="../../Programs/Inheritance/Program10.html" class="sidelinks sideactive">Program 10</a>
+            <a href="../../Programs/Inheritance/Program11.html" class="sidelinks sideactive">Program 11</a>
+            <a href="../../Programs/Inheritance/Program12.html" class="sidelinks sideactive">Program 12</a>
+            <a href="../../Programs/Inheritance/Program13.html" class="sidelinks sideactive">Program 13</a>
+            <a href="../../Programs/Inheritance/Program14.html" class="sidelinks sideactive">Program 14</a>
+            <a href="../../Programs/Inheritance/Program15.html" class="sidelinks sideactive">Program 15</a>
+            <a href="../../Programs/Inheritance/Program16.html" class="sidelinks sideactive">Program 16</a>
+            <a href="../../Programs/Inheritance/Program17.html" class="sidelinks sideactive">Program 17</a>
+            <a href="../../Programs/Inheritance/Program18.html" class="sidelinks sideactive">Program 18</a>
+            <a href="../../Programs/Inheritance/Program19.html" class="sidelinks sideactive">Program 19</a>
+            <a href="../../Programs/Inheritance/Program20.html" class="sidelinks sideactive">Program 20</a>
+            <a href="../../Programs/Inheritance/Program21.html" class="sidelinks sideactive">Program 21</a>
+            <a href="../../Programs/Inheritance/Program22.html" class="sidelinks sideactive">Program 22</a>
+            <a href="../../Programs/Inheritance/Program23.html" class="sidelinks sideactive">Program 23</a>
+            <a href="../../Programs/Inheritance/Program24.html" class="sidelinks sideactive">Program 24</a>
+            <a href="../../Programs/Inheritance/Program25.html" class="sidelinks sideactive">Program 25</a>
+            <a href="../../Programs/Inheritance/Program26.html" class="sidelinks sideactive">Program 26</a>
+            </div>
+        <div class="content">
+            <!-- topic name -->
+            <h3 class="main">Inheritance</h3>
+
+            <!-- Programs list -->
+            <p>26. Write a Java program to create an abstract class GeometricShape with abstract methods area() and perimeter(). Create subclasses Triangle and Square that extend the GeometricShape class and implement the respective methods to calculate the area and perimeter of each shape</p>
+            <h3>Code</h3>
+            <pre class="code"><code class="language-java">
+                
+// Abstract class GeometricShape
+abstract class GeometricShape {
+    // Abstract methods
+    public abstract double area();
+    public abstract double perimeter();
+}
+                                        
+// Subclass Triangle extending GeometricShape
+class Triangle extends GeometricShape {
+    // Fields for the sides of the triangle
+    private double sideA;
+    private double sideB;
+    private double sideC;
+                                        
+    // Constructor for Triangle
+    public Triangle(double sideA, double sideB, double sideC) {
+        this.sideA = sideA;
+        this.sideB = sideB;
+        this.sideC = sideC;
+    }
+                                        
+    // Implementing the area method for Triangle
+    
+    public double area() {
+        // Using Heron's formula to calculate the area of the triangle
+        double s = (sideA + sideB + sideC) / 2;
+        return Math.sqrt(s * (s - sideA) * (s - sideB) * (s - sideC));
+    }
+                                        
+    // Implementing the perimeter method for Triangle
+    
+    public double perimeter() {
+        return sideA + sideB + sideC;
+    }
+}
+                                        
+// Subclass Square extending GeometricShape
+class Square extends GeometricShape {
+    // Field for the side of the square
+    private double side;
+                                        
+    // Constructor for Square
+    public Square(double side) {
+        this.side = side;
+    }
+                                        
+    // Implementing the area method for Square
+    
+    public double area() {
+        return side * side;
+    }
+                                        
+    // Implementing the perimeter method for Square
+    
+    public double perimeter() {
+        return 4 * side;
+    }
+}
+                                        
+// Main class
+public class AbstractGeometricShapeExample {
+    public static void main(String[] args) {
+        // Create instances of Triangle and Square
+        Triangle triangle = new Triangle(3, 4, 5);
+        Square square = new Square(4);
+                                        
+        // Calculate and display the area and perimeter for each shape
+        System.out.println("Triangle:");
+        System.out.println("Area: " + triangle.area());
+        System.out.println("Perimeter: " + triangle.perimeter());
+                                        
+        System.out.println(); // Empty line for clarity
+                                        
+        System.out.println("Square:");
+        System.out.println("Area: " + square.area());
+        System.out.println("Perimeter: " + square.perimeter());
+    }
+} 
+</code></pre>
+<h3>Output</h3>
+<pre class="code" style="padding: 2%;">
+Triangle: 
+
+Area: 6.0 
+
+Perimeter: 12.0 
+
+</pre>
+            <!-- previous next buttons -->
+            <!-- <div class="toggle-page-btns">
+                <a href="plsql2.html" class="button">Next &rarr;</a>
+            </div> -->
+        </div>
+    </div>
+    <footer>
+        Copyright &copy; 2023 Squirrel<span class="primary-color">Codes</span>
+    </footer>
+</body>
+
+</html>

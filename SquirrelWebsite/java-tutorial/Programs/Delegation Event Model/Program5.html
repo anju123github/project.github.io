@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Squirrel-Codes</title>
+    <link rel="stylesheet" href="../../../index.css">
+    <link rel="shortcut icon" href="../../../images/logo-dark.svg" type="image/x-icon">
+</head>
+
+<body>
+
+    <header class="sticky">
+        <a href="/index.html" class="webname">
+            <img src="../../../images/logo-dark.svg" alt="">
+            Squirrel<span class="primary-color">Codes</span>
+        </a>
+        <nav>
+            <a href="../../../index.html">Home</a>
+            <a href="../../../dbms-tutorial">DBMS</a>
+            <a href="../../plsql-tutorial/" class="active">PL/SQL</a>
+            <a href="../../java.html">Java</a>
+            <a href="../../../about.html">About</a>
+        </nav>
+    </header>
+
+    <h2 class="center tutorial">Java Tutorial</h2>
+    <hr>
+    <div class="content-box">
+        <div class="sidebar">
+            <a class="primary-color">Programs</a>
+            <a href="../../Programs/Delegation Event Model/Program1.html" class="sidelinks sideactive">Program 1</a>
+            <a href="../../Programs/Delegation Event Model/Program2.html" class="sidelinks sideactive">Program 2</a>
+            <a href="../../Programs/Delegation Event Model/Program3.html" class="sidelinks sideactive">Program 3</a>
+            <a href="../../Programs/Delegation Event Model/Program4.html" class="sidelinks sideactive">Program 4</a>
+            <a href="../../Programs/Delegation Event Model/Program5.html" class="sidelinks sideactive">Program 5</a>
+            <a href="../../Programs/Delegation Event Model/Program6.html" class="sidelinks sideactive">Program 6</a>
+            <a href="../../Programs/Delegation Event Model/Program7.html" class="sidelinks sideactive">Program 7</a>
+            <a href="../../Programs/Delegation Event Model/Program8.html" class="sidelinks sideactive">Program 8</a>
+            <a href="../../Programs/Delegation Event Model/Program9.html" class="sidelinks sideactive">Program 9</a>
+            <a href="../../Programs/Delegation Event Model/Program10.html" class="sidelinks sideactive">Program 10</a>
+            <a href="../../Programs/Delegation Event Model/Program11.html" class="sidelinks sideactive">Program 11</a>
+            <a href="../../Programs/Delegation Event Model/Program12.html" class="sidelinks sideactive">Program 12</a>
+            <a href="../../Programs/Delegation Event Model/Program13.html" class="sidelinks sideactive">Program 13</a>
+            <a href="../../Programs/Delegation Event Model/Program14.html" class="sidelinks sideactive">Program 14</a>
+            <a href="../../Programs/Delegation Event Model/Program15.html" class="sidelinks sideactive">Program 15</a>
+            <a href="../../Programs/Delegation Event Model/Program16.html" class="sidelinks sideactive">Program 16</a>
+            <a href="../../Programs/Delegation Event Model/Program17.html" class="sidelinks sideactive">Program 17</a>
+            <a href="../../Programs/Delegation Event Model/Program18.html" class="sidelinks sideactive">Program 18</a>
+            <a href="../../Programs/Delegation Event Model/Program19.html" class="sidelinks sideactive">Program 19</a>
+            <a href="../../Programs/Delegation Event Model/Program20.html" class="sidelinks sideactive">Program 20</a>
+        
+        </div>
+        <div class="content">
+            <!-- topic name -->
+            <h3 class="main">Delegation-event-model</h3>
+
+            <!-- Programs list -->
+            <p>5. Java Program to Handle KeyBoardEvent</p>
+            <h3>Code</h3>
+            <pre class="code"><code class="language-java">
+                
+// Java Program to Handle KeyBoardEvent
+import java.awt.*;
+import java.awt.event.*;
+
+class Main implements KeyListener {
+    static Frame frame;
+    static TextField tf1;
+    static TextField tf2;
+
+    // Driver function
+    public static void main(String args[]) {
+        frame = new Frame("Keyboard Event");
+        frame.setSize(500, 500);
+        frame.setLayout(null);
+
+        tf1 = new TextField();
+        tf1.setBounds(150, 100, 500, 50);
+
+        tf2 = new TextField();
+        tf2.setBounds(140, 400, 500, 50);
+
+        Main obj = new Main();
+
+        tf2.addKeyListener(obj);
+        frame.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent w) {
+                frame.dispose();
+            }
+        });
+        frame.setVisible(true);
+        frame.add(tf1);
+        frame.add(tf2);
+    }
+
+    public void keyReleased(KeyEvent e) {
+        tf1.setText("");
+        tf1.setText("Key Released : " + e.getKeyCode());        
+        System.out.println("Key Released");
+    }
+
+    // function to display the unicode of key pressed and the character if it is a letter or a digit
+    public void keyPressed(KeyEvent e) {
+        tf1.setText("");
+        tf1.setText("Key Pressed : " + e.getKeyCode());
+        System.out.println("Key Pressed");
+    }
+
+    // function to display the character of the key typed
+    public void keyTyped(KeyEvent e) {
+        tf1.setText("");
+        tf1.setText("Key Typed : " + e.getKeyChar());
+    System.out.println("Key Typed");
+    }
+}
+</code></pre>
+<h3>Output</h3>
+<pre class="code" style="padding: 2%;">
+    <img src="j5.png">
+</pre>
+            <!-- previous next buttons -->
+            <!-- <div class="toggle-page-btns">
+                <a href="plsql2.html" class="button">Next &rarr;</a>
+            </div> -->
+        </div>
+    </div>
+    <footer>
+        Copyright &copy; 2023 Squirrel<span class="primary-color">Codes</span>
+    </footer>
+</body>
+
+</html>

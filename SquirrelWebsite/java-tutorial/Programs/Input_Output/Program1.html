@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Squirrel-Codes</title>
+    <link rel="stylesheet" href="../../../index.css">
+    <link rel="shortcut icon" href="../../../images/logo-dark.svg" type="image/x-icon">
+</head>
+
+<body>
+
+    <header class="sticky">
+        <a href="/index.html" class="webname">
+            <img src="../../../images/logo-dark.svg" alt="">
+            Squirrel<span class="primary-color">Codes</span>
+        </a>
+        <nav>
+            <a href="../../../index.html">Home</a>
+            <a href="../../../dbms-tutorial">DBMS</a>
+            <a href="../../plsql-tutorial/" class="active">PL/SQL</a>
+            <a href="../../java.html">Java</a>
+            <a href="../../../about.html">About</a>
+        </nav>
+    </header>
+
+    <h2 class="center tutorial">Java Tutorial</h2>
+    <hr>
+    <div class="content-box">
+        <div class="sidebar">
+            <a class="primary-color">Programs</a>
+            <a href="../../Programs/Input_Output/Program1.html" class="sidelinks sideactive">Program 1</a>
+            <a href="../../Programs/Input_Output/Program2.html" class="sidelinks sideactive">Program 2</a>
+            <a href="../../Programs/Input_Output/Program3.html" class="sidelinks sideactive">Program 3</a>
+            <a href="../../Programs/Input_Output/Program4.html" class="sidelinks sideactive">Program 4</a>
+            <a href="../../Programs/Input_Output/Program5.html" class="sidelinks sideactive">Program 5</a>
+            <a href="../../Programs/Input_Output/Program6.html" class="sidelinks sideactive">Program 6</a>
+            <a href="../../Programs/Input_Output/Program7.html" class="sidelinks sideactive">Program 7</a>
+            <a href="../../Programs/Input_Output/Program8.html" class="sidelinks sideactive">Program 8</a>
+            <a href="../../Programs/Input_Output/Program9.html" class="sidelinks sideactive">Program 9</a>
+            <a href="../../Programs/Input_Output/Program10.html" class="sidelinks sideactive">Program 10</a>
+           
+           
+        
+        </div>
+        <div class="content">
+            <!-- topic name -->
+            <h3 class="main">Input_output</h3>
+
+            <!-- Programs list -->
+            <p>1. Enter the character from user using InputStreamReader</p>
+            <h3>Code</h3>
+            <pre class="code"><code class="language-java">
+                
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class ReadCharFromUser {
+    public static void main(String[] args) {
+        // Create an InputStreamReader to read characters from the console
+        InputStreamReader inputStreamReader = new InputStreamReader(System.in);
+
+        // Wrap the InputStreamReader with BufferedReader for easier reading
+        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+
+        try {
+            // Prompt the user to enter a character
+            System.out.print("Enter a character: ");
+
+            // Read a single character from the user
+            char userInput = (char) bufferedReader.read();
+
+            // Print the entered character
+            System.out.println("You entered: " + userInput);
+        } catch (IOException e) {
+            System.err.println("Error reading input: " + e.getMessage());
+        } finally {
+            try {
+                // Close the BufferedReader
+                bufferedReader.close();
+            } catch (IOException e) {
+                System.err.println("Error closing BufferedReader: " + e.getMessage());
+            }
+        }
+    }
+} 
+</code></pre>
+<h3>Output</h3>
+<pre class="code" style="padding: 2%;">
+Enter a character: A
+
+You entered: A
+</pre>
+            <!-- previous next buttons -->
+            <!-- <div class="toggle-page-btns">
+                <a href="plsql2.html" class="button">Next &rarr;</a>
+            </div> -->
+        </div>
+    </div>
+    <footer>
+        Copyright &copy; 2023 Squirrel<span class="primary-color">Codes</span>
+    </footer>
+</body>
+
+</html>

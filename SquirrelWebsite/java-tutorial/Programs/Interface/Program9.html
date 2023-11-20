@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Squirrel-Codes</title>
+    <link rel="stylesheet" href="../../../index.css">
+    <link rel="shortcut icon" href="../../../images/logo-dark.svg" type="image/x-icon">
+</head>
+
+<body>
+
+    <header class="sticky">
+        <a href="/index.html" class="webname">
+            <img src="../../../images/logo-dark.svg" alt="">
+            Squirrel<span class="primary-color">Codes</span>
+        </a>
+        <nav>
+            <a href="../../../index.html">Home</a>
+            <a href="../../../dbms-tutorial">DBMS</a>
+            <a href="../../plsql-tutorial/" class="active">PL/SQL</a>
+            <a href="../../java.html">Java</a>
+            <a href="../../../about.html">About</a>
+        </nav>
+    </header>
+
+    <h2 class="center tutorial">Java Tutorial</h2>
+    <hr>
+    <div class="content-box">
+        <div class="sidebar">
+            <a class="primary-color">Programs</a>
+            <a href="../../Programs/Interface/Program1.html" class="sidelinks sideactive">Program 1</a>
+            <a href="../../Programs/Interface/Program2.html" class="sidelinks sideactive">Program 2</a>
+            <a href="../../Programs/Interface/Program3.html" class="sidelinks sideactive">Program 3</a>
+            <a href="../../Programs/Interface/Program4.html" class="sidelinks sideactive">Program 4</a>
+            <a href="../../Programs/Interface/Program5.html" class="sidelinks sideactive">Program 5</a>
+            <a href="../../Programs/Interface/Program6.html" class="sidelinks sideactive">Program 6</a>
+            <a href="../../Programs/Interface/Program7.html" class="sidelinks sideactive">Program 7</a>
+            <a href="../../Programs/Interface/Program8.html" class="sidelinks sideactive">Program 8</a>
+            <a href="../../Programs/Interface/Program9.html" class="sidelinks sideactive">Program 9</a>
+            <a href="../../Programs/Interface/Program10.html" class="sidelinks sideactive">Program 10</a>
+            <a href="../../Programs/Interface/Program11.html" class="sidelinks sideactive">Program 11</a>
+           
+           
+        
+        </div>
+        <div class="content">
+            <!-- topic name -->
+            <h3 class="main">Interface</h3>
+
+            <!-- Programs list -->
+            <p>9. Write a Java program to create an interface Searchable with a method search(String keyword) that searches for a given keyword in a text document. Create two classes Document and WebPage that implement the Searchable interface and provide their own implementations of the search() method.</p>
+            <h3>Code</h3>
+            <pre class="code"><code class="language-java">
+                
+              // Interface for searchable objects
+              interface Searchable {
+                  void search(String keyword);
+              }
+                                                      
+              // Document class implementing Searchable interface
+              class Document implements Searchable {
+                  private String content;
+                                                      
+                  public Document(String content) {
+                      this.content = content;
+                  }
+                                                      
+                  
+                  public void search(String keyword) {
+                      if (content.contains(keyword)) {
+                          System.out.println("Keyword '" + keyword + "' found in the document.");
+                      } else {
+                          System.out.println("Keyword '" + keyword + "' not found in the document.");
+                      }
+                  }
+              }
+                                                      
+              // WebPage class implementing Searchable interface
+              class WebPage implements Searchable {
+                  private String url;
+                  private String pageContent;
+                                                      
+                  public WebPage(String url, String pageContent) {
+                      this.url = url;
+                      this.pageContent = pageContent;
+                  }
+                                                      
+                  
+                  public void search(String keyword) {
+                      if (pageContent.contains(keyword)) {
+                          System.out.println("Keyword '" + keyword + "' found in the web page at " + url);
+                      } else {
+                          System.out.println("Keyword '" + keyword + "' not found in the web page at " + url);
+                      }
+                  }
+              }
+                                                      
+              // Main class
+              public class SearchableExample {
+                  public static void main(String[] args) {
+                      // Create instances of searchable objects
+                      Document document = new Document("This is a sample document for searching.");
+                      WebPage webPage = new WebPage("http://example.com", "This is a sample web page for searching.");
+                                                      
+                      // Search for keywords
+                      document.search("sample");
+                      webPage.search("web");
+                  }
+              } 
+</code></pre>
+<h3>Output</h3>
+<pre class="code" style="padding: 2%;">
+Keyword 'sample' found in the document. 
+
+Keyword 'web' found in the web page at http://example.com
+</pre>
+            <!-- previous next buttons -->
+            <!-- <div class="toggle-page-btns">
+                <a href="plsql2.html" class="button">Next &rarr;</a>
+            </div> -->
+        </div>
+    </div>
+    <footer>
+        Copyright &copy; 2023 Squirrel<span class="primary-color">Codes</span>
+    </footer>
+</body>
+
+</html>

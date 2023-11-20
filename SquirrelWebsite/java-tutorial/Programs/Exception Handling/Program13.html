@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Squirrel-Codes</title>
+    <link rel="stylesheet" href="../../../index.css">
+    <link rel="shortcut icon" href="../../../images/logo-dark.svg" type="image/x-icon">
+</head>
+
+<body>
+
+    <header class="sticky">
+        <a href="/index.html" class="webname">
+            <img src="../../../images/logo-dark.svg" alt="">
+            Squirrel<span class="primary-color">Codes</span>
+        </a>
+        <nav>
+            <a href="../../../index.html">Home</a>
+            <a href="../../../dbms-tutorial">DBMS</a>
+            <a href="../../plsql-tutorial/" class="active">PL/SQL</a>
+            <a href="../../java.html">Java</a>
+            <a href="../../../about.html">About</a>
+        </nav>
+    </header>
+
+    <h2 class="center tutorial">Java Tutorial</h2>
+    <hr>
+    <div class="content-box">
+        <div class="sidebar">
+            <a class="primary-color">Programs</a>
+            <a href="../../Programs/Exception Handling/Program1.html" class="sidelinks sideactive">Program 1</a>
+            <a href="../../Programs/Exception Handling/Program2.html" class="sidelinks sideactive">Program 2</a>
+            <a href="../../Programs/Exception Handling/Program3.html" class="sidelinks sideactive">Program 3</a>
+            <a href="../../Programs/Exception Handling/Program4.html" class="sidelinks sideactive">Program 4</a>
+            <a href="../../Programs/Exception Handling/Program5.html" class="sidelinks sideactive">Program 5</a>
+            <a href="../../Programs/Exception Handling/Program6.html" class="sidelinks sideactive">Program 6</a>
+            <a href="../../Programs/Exception Handling/Program7.html" class="sidelinks sideactive">Program 7</a>
+            <a href="../../Programs/Exception Handling/Program8.html" class="sidelinks sideactive">Program 8</a>
+            <a href="../../Programs/Exception Handling/Program9.html" class="sidelinks sideactive">Program 9</a>
+            <a href="../../Programs/Exception Handling/Program10.html" class="sidelinks sideactive">Program 10</a>
+            <a href="../../Programs/Exception Handling/Program11.html" class="sidelinks sideactive">Program 11</a>
+            <a href="../../Programs/Exception Handling/Program12.html" class="sidelinks sideactive">Program 12</a>
+            <a href="../../Programs/Exception Handling/Program13.html" class="sidelinks sideactive">Program 13</a>
+           
+        
+        </div>
+        <div class="content">
+            <!-- topic name -->
+            <h3 class="main">Exception Handling</h3>
+
+            <!-- Programs list -->
+            <p>13. Write a Java program to show an example of nested try block.</p>
+            <h3>Code</h3>
+            <pre class="code"><code class="language-java">
+                public class NestedTryExample {
+                    public static void main(String[] args) {
+                        try {
+                            // Outer try block
+                            System.out.println("Outer Try Block");
+                                                        
+                            try {
+                                // Inner try block
+                                System.out.println("Inner Try Block");
+                                // Simulating an ArithmeticException
+                                int result = 10 / 0;
+                            } catch (ArithmeticException innerException) {
+                                System.out.println("Caught Inner ArithmeticException: " + innerException.getMessage());
+                            }
+                                                        
+                            // Simulating an ArrayIndexOutOfBoundsException
+                            int[] array = new int[5];
+                            int value = array[10];
+                                                        
+                        } catch (ArrayIndexOutOfBoundsException outerException) {
+                            // Outer catch block
+                            System.out.println("Caught Outer ArrayIndexOutOfBoundsException: " + outerException.getMessage());
+                        } catch (Exception e) {
+                            // General catch block for any other exception
+                            System.out.println("Caught Exception: " + e.getMessage());
+                        } finally {
+                            // Finally block
+                            System.out.println("This block always executes, regardless of exceptions");
+                }
+</code></pre>
+<h3>Output</h3>
+<pre class="code" style="padding: 2%;">
+Outer Try Block 
+
+Inner Try Block 
+
+Caught Inner ArithmeticException: / by zero 
+
+This block always executes, regardless of exceptions
+</pre>
+            <!-- previous next buttons -->
+            <!-- <div class="toggle-page-btns">
+                <a href="plsql2.html" class="button">Next &rarr;</a>
+            </div> -->
+        </div>
+    </div>
+    <footer>
+        Copyright &copy; 2023 Squirrel<span class="primary-color">Codes</span>
+    </footer>
+</body>
+
+</html>

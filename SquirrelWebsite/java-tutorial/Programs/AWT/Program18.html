@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Squirrel-Codes</title>
+    <link rel="stylesheet" href="../../../index.css">
+    <link rel="shortcut icon" href="../../../images/logo-dark.svg" type="image/x-icon">
+</head>
+
+<body>
+
+    <header class="sticky">
+        <a href="/index.html" class="webname">
+            <img src="../../../images/logo-dark.svg" alt="">
+            Squirrel<span class="primary-color">Codes</span>
+        </a>
+        <nav>
+            <a href="../../../index.html">Home</a>
+            <a href="../../../dbms-tutorial">DBMS</a>
+            <a href="../../plsql-tutorial/plsql1.html" class="active">PL/SQL</a>
+            <a href="../../java.html">Java</a>
+            <a href="../../../about.html">About</a>
+        </nav>
+    </header>
+
+    <h2 class="center tutorial">Java Tutorial</h2>
+    <hr>
+    <div class="content-box">
+        <div class="sidebar">
+            <a class="primary-color">Programs</a>
+            <a href="../../Programs/AWT/Program1.html" class="sidelinks sideactive">Program 1</a>
+            <a href="../../Programs/AWT/Program2.html" class="sidelinks sideactive">Program 2</a>
+            <a href="../../Programs/AWT/Program3.html" class="sidelinks sideactive">Program 3</a>
+            <a href="../../Programs/AWT/Program4.html" class="sidelinks sideactive">Program 4</a>
+            <a href="../../Programs/AWT/Program5.html" class="sidelinks sideactive">Program 5</a>
+            <a href="../../Programs/AWT/Program6.html" class="sidelinks sideactive">Program 6</a>
+            <a href="../../Programs/AWT/Program7.html" class="sidelinks sideactive">Program 7</a>
+            <a href="../../Programs/AWT/Program8.html" class="sidelinks sideactive">Program 8</a>
+            <a href="../../Programs/AWT/Program9.html" class="sidelinks sideactive">Program 9</a>
+            <a href="../../Programs/AWT/Program10.html" class="sidelinks sideactive">Program 10</a>
+            <a href="../../Programs/AWT/Program11.html" class="sidelinks sideactive">Program 11</a>
+            <a href="../../Programs/AWT/Program12.html" class="sidelinks sideactive">Program 12</a>
+            <a href="../../Programs/AWT/Program13.html" class="sidelinks sideactive">Program 13</a>
+            <a href="../../Programs/AWT/Program14.html" class="sidelinks sideactive">Program 14</a>
+            <a href="../../Programs/AWT/Program15.html" class="sidelinks sideactive">Program 15</a>
+            <a href="../../Programs/AWT/Program16.html" class="sidelinks sideactive">Program 16</a>
+            <a href="../../Programs/AWT/Program17.html" class="sidelinks sideactive">Program 17</a>
+            <a href="../../Programs/AWT/Program18.html" class="sidelinks sideactive">Program 18</a>
+        </div>
+        <div class="content">
+            <!-- topic name -->
+            <h3 class="main">AWT</h3>
+
+            <!-- Programs list -->
+            <p>18. Create a simple AWT application design a calculator that displays buttons, TextField with GridLayout manager.</p>
+            <h3>Code</h3>
+            <pre class="code"><code class="language-java">
+                
+               class Calculator extends java.awt.Frame
+               /* implements java.awt.event.ActionListener */
+               {
+                   Calculator()
+                   {
+                       setSize(400,500);
+                       setResizable(false);
+                       setLayout(null);
+               
+                       add(Calculator.myField());
+               
+                       Calculator.myButton(this,16);
+                   }
+                   private static java.awt.Font myFont(int size)
+                   {
+                       return new java.awt.Font("Arial",0,size);
+                   }
+                   private static java.awt.TextField myField()
+                   {
+                       java.awt.TextField fld = new java.awt.TextField();
+               
+                       fld.setBounds(0,0,400,100);
+               
+                       fld.setEditable(true);
+               
+                       fld.setFont(Calculator.myFont(25));
+               
+                       fld.setForeground(java.awt.Color.BLACK);
+               
+                       fld.setBackground(java.awt.Color.WHITE);
+               
+                       return fld;
+                   }
+                   private static void myButton(java.awt.Frame frame,int size)
+                   {
+                       java.awt.Button btn[] = new java.awt.Button[size];
+               
+                       int x = 0, y = 100;	// default coordinates
+               
+                       char btn_label = ' ';
+               
+                       for (int i = 0; i < size; i++)
+                       {
+                           btn[i] = new java.awt.Button();
+               
+                           if (i > 9)
+                           {
+                               switch(i)
+                               {
+                                   case 10 : btn_label = '+'; break;
+               
+                                   case 11 : btn_label = '-'; break;
+               
+                                   case 12 : btn_label = '*'; break;
+               
+                                   case 13 : btn_label = '/'; break;
+               
+                                   case 14 : btn_label = '%'; break;
+               
+                                   default : btn_label = '=';
+                               }
+                               btn[i].setLabel(""+btn_label+"");
+                           }
+                           else
+                           {
+                               btn[i].setLabel(""+i+"");
+                           }
+               
+                           if (i != 0)
+                           {
+                               if ((i%4) == 0)
+                               {
+                                   x = 0;
+                                   y += 100;
+                               }
+                               else
+                               {
+                                   x += 100;
+                               }
+                           }
+                           btn[i].setBounds(x,y,100,100);
+               
+                           Calculator.buttonStyle(btn[i],25);
+               
+                           // btn[i].addActionListener(btn[i]);
+               
+                           frame.add(btn[i]);
+                       }
+                   }
+                   private static void buttonStyle(java.awt.Button btn, int size)
+                   {
+                       btn.setFont(Calculator.myFont(size));
+                       btn.setForeground(java.awt.Color.GRAY);
+                       btn.setBackground(java.awt.Color.WHITE);
+                   }
+                   private static void buttonActionStyle(java.awt.Button btn, int size)
+                   {
+                       btn.setFont(Calculator.myFont(size));
+                       btn.setForeground(java.awt.Color.BLACK);
+                       btn.setBackground(java.awt.Color.WHITE);
+                   }
+                   /*
+                       @Override : ActionListener
+                   public void actionPerformed(java.awt.event.ActionEvent element)
+                   {
+                       Calculator.buttonActionStyle(this,20);
+               
+                       System.out.println(" button "+this.getLabel());
+                   }
+                   public static void main(String args[])
+                   {
+                       System.out.println(" Calculator execute ... ");
+               
+                       new Calculator().setVisible(true);
+                   }
+               }
+               // the end ---
+</code></pre>
+<h3>Output</h3>
+<pre class="code" style="padding: 2%;">
+  <img src="18.png">
+</pre>
+            <!-- previous next buttons -->
+            <!-- <div class="toggle-page-btns">
+                <a href="plsql2.html" class="button">Next &rarr;</a>
+            </div> -->
+        </div>
+    </div>
+    <footer>
+        Copyright &copy; 2023 Squirrel<span class="primary-color">Codes</span>
+    </footer>
+</body>
+
+</html>

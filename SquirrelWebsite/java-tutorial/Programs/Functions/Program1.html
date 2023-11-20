@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Squirrel-Codes</title>
+    <link rel="stylesheet" href="../../../index.css">
+    <link rel="shortcut icon" href="../../../images/logo-dark.svg" type="image/x-icon">
+</head>
+
+<body>
+
+    <header class="sticky">
+        <a href="/index.html" class="webname">
+            <img src="../../../images/logo-dark.svg" alt="">
+            Squirrel<span class="primary-color">Codes</span>
+        </a>
+        <nav>
+            <a href="../../../index.html">Home</a>
+            <a href="../../../dbms-tutorial">DBMS</a>
+            <a href="../../plsql-tutorial/" class="active">PL/SQL</a>
+            <a href="../../java.html">Java</a>
+            <a href="../../../about.html">About</a>
+        </nav>
+    </header>
+
+    <h2 class="center tutorial">Java Tutorial</h2>
+    <hr>
+    <div class="content-box">
+        <div class="sidebar">
+            <a class="primary-color">Programs</a>
+            <a href="../../Programs/Functions/Program1.html" class="sidelinks sideactive">Program 1</a>
+            <a href="../../Programs/Functions/Program2.html" class="sidelinks sideactive">Program 2</a>
+            <a href="../../Programs/Functions/Program3.html" class="sidelinks sideactive">Program 3</a>
+            <a href="../../Programs/Functions/Program4.html" class="sidelinks sideactive">Program 4</a>
+            <a href="../../Programs/Functions/Program5.html" class="sidelinks sideactive">Program 5</a>
+            <a href="../../Programs/Functions/Program6.html" class="sidelinks sideactive">Program 6</a>
+            <a href="../../Programs/Functions/Program7.html" class="sidelinks sideactive">Program 7</a>
+            <a href="../../Programs/Functions/Program8.html" class="sidelinks sideactive">Program 8</a>
+            <a href="../../Programs/Functions/Program9.html" class="sidelinks sideactive">Program 9</a>
+            <a href="../../Programs/Functions/Program10.html" class="sidelinks sideactive">Program 10</a>
+            <a href="../../Programs/Functions/Program11.html" class="sidelinks sideactive">Program 11</a>
+            <a href="../../Programs/Functions/Program12.html" class="sidelinks sideactive">Program 12</a>
+            <a href="../../Programs/Functions/Program13.html" class="sidelinks sideactive">Program 13</a>
+           
+        
+        </div>
+        <div class="content">
+            <!-- topic name -->
+            <h3 class="main">Functions</h3>
+
+            <!-- Programs list -->
+            <p>1. Write a Java method to find the smallest number among three numbers.</p>
+            <h3>Code</h3>
+            <pre class="code"><code class="language-java">
+                public class SmallestNumberFinder {
+
+                    // Method to find the smallest number among three numbers
+                    public static int findSmallestNumber(int num1, int num2, int num3) {
+                        int smallest = num1;
+                                                
+                        if (num2 < smallest) {
+                            smallest = num2;
+                        }
+                                                
+                        if (num3 < smallest) {
+                            smallest = num3;
+                        }
+                                                
+                        return smallest;
+                    }
+                                                
+                    public static void main(String[] args) {
+                        // Example usage:
+                        int num1 = 10;
+                        int num2 = 5;
+                        int num3 = 8;
+                                                
+                        int smallestNumber = findSmallestNumber(num1, num2, num3);
+                                                
+                        System.out.println("The smallest number among " + num1 + ", " + num2 + ", and " + num3 + " is: " + smallestNumber);
+                    }
+                }  
+                
+</code></pre>
+<h3>Output</h3>
+<pre class="code" style="padding: 2%;">
+    The smallest number among 10, 5, and 8 is: 5
+</pre>
+            <!-- previous next buttons -->
+            <!-- <div class="toggle-page-btns">
+                <a href="plsql2.html" class="button">Next &rarr;</a>
+            </div> -->
+        </div>
+    </div>
+    <footer>
+        Copyright &copy; 2023 Squirrel<span class="primary-color">Codes</span>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Squirrel-Codes</title>
+    <link rel="stylesheet" href="../../../index.css">
+    <link rel="shortcut icon" href="../../../images/logo-dark.svg" type="image/x-icon">
+</head>
+
+<body>
+
+    <header class="sticky">
+        <a href="/index.html" class="webname">
+            <img src="../../../images/logo-dark.svg" alt="">
+            Squirrel<span class="primary-color">Codes</span>
+        </a>
+        <nav>
+            <a href="../../../index.html">Home</a>
+            <a href="../../../dbms-tutorial">DBMS</a>
+            <a href="../../plsql-tutorial/" class="active">PL/SQL</a>
+            <a href="../../java.html">Java</a>
+            <a href="../../../about.html">About</a>
+        </nav>
+    </header>
+
+    <h2 class="center tutorial">Java Tutorial</h2>
+    <hr>
+    <div class="content-box">
+        <div class="sidebar">
+            <a class="primary-color">Programs</a>
+            <a href="../../Programs/Inheritance/Program1.html" class="sidelinks sideactive">Program 1</a>
+            <a href="../../Programs/Inheritance/Program2.html" class="sidelinks sideactive">Program 2</a>
+            <a href="../../Programs/Inheritance/Program3.html" class="sidelinks sideactive">Program 3</a>
+            <a href="../../Programs/Inheritance/Program4.html" class="sidelinks sideactive">Program 4</a>
+            <a href="../../Programs/Inheritance/Program5.html" class="sidelinks sideactive">Program 5</a>
+            <a href="../../Programs/Inheritance/Program6.html" class="sidelinks sideactive">Program 6</a>
+            <a href="../../Programs/Inheritance/Program7.html" class="sidelinks sideactive">Program 7</a>
+            <a href="../../Programs/Inheritance/Program8.html" class="sidelinks sideactive">Program 8</a>
+            <a href="../../Programs/Inheritance/Program9.html" class="sidelinks sideactive">Program 9</a>
+            <a href="../../Programs/Inheritance/Program10.html" class="sidelinks sideactive">Program 10</a>
+            <a href="../../Programs/Inheritance/Program11.html" class="sidelinks sideactive">Program 11</a>
+            <a href="../../Programs/Inheritance/Program12.html" class="sidelinks sideactive">Program 12</a>
+            <a href="../../Programs/Inheritance/Program13.html" class="sidelinks sideactive">Program 13</a>
+            <a href="../../Programs/Inheritance/Program14.html" class="sidelinks sideactive">Program 14</a>
+            <a href="../../Programs/Inheritance/Program15.html" class="sidelinks sideactive">Program 15</a>
+            <a href="../../Programs/Inheritance/Program16.html" class="sidelinks sideactive">Program 16</a>
+            <a href="../../Programs/Inheritance/Program17.html" class="sidelinks sideactive">Program 17</a>
+            <a href="../../Programs/Inheritance/Program18.html" class="sidelinks sideactive">Program 18</a>
+            <a href="../../Programs/Inheritance/Program19.html" class="sidelinks sideactive">Program 19</a>
+            <a href="../../Programs/Inheritance/Program20.html" class="sidelinks sideactive">Program 20</a>
+            <a href="../../Programs/Inheritance/Program21.html" class="sidelinks sideactive">Program 21</a>
+            <a href="../../Programs/Inheritance/Program22.html" class="sidelinks sideactive">Program 22</a>
+            <a href="../../Programs/Inheritance/Program23.html" class="sidelinks sideactive">Program 23</a>
+            <a href="../../Programs/Inheritance/Program24.html" class="sidelinks sideactive">Program 24</a>
+            <a href="../../Programs/Inheritance/Program25.html" class="sidelinks sideactive">Program 25</a>
+            <a href="../../Programs/Inheritance/Program26.html" class="sidelinks sideactive">Program 26</a>
+            </div>
+        <div class="content">
+            <!-- topic name -->
+            <h3 class="main">Inheritance</h3>
+
+            <!-- Programs list -->
+            <p>8. Write a Java program to create a class called Shape with methods called getPerimeter() and getArea(). Create a subclass called Circle that overrides the getPerimeter() and getArea() methods to calculate the area and perimeter of a circle.</p>
+            <h3>Code</h3>
+            <pre class="code"><code class="language-java">
+                
+              // Base class Shape
+              class Shape {
+                  // Method to get the perimeter
+                  public double getPerimeter() {
+                      System.out.println("Calculating perimeter of a generic shape");
+                      return 0.0; // Default perimeter for a generic shape
+                  }
+                                                      
+                  // Method to get the area
+                  public double getArea() {
+                      System.out.println("Calculating area of a generic shape");
+                      return 0.0; // Default area for a generic shape
+                  }
+              }
+                                                      
+              // Subclass Circle extending Shape
+              class Circle extends Shape {
+                  // Attribute specific to Circle
+                  private double radius;
+                                                      
+                  // Constructor for Circle
+                  public Circle(double radius) {
+                      this.radius = radius;
+                  }
+                                                      
+                  // Override the getPerimeter method to calculate the perimeter of a circle
+                  
+                  public double getPerimeter() {
+                      double perimeter = 2 * Math.PI * radius;
+                      System.out.println("Calculating perimeter of a circle: " + perimeter);
+                      return perimeter;
+                  }
+                                                      
+                  // Override the getArea method to calculate the area of a circle
+                  
+                  public double getArea() {
+                      double area = Math.PI * radius * radius;
+                      System.out.println("Calculating area of a circle: " + area);
+                      return area;
+                  }
+              }
+                                                      
+              // Main class
+              public class ShapeExample {
+                  public static void main(String[] args) {
+                      // Create an instance of Shape
+                      Shape genericShape = new Shape();
+              
+                      // Create an instance of Circle
+                      Circle myCircle = new Circle(5.0);
+              
+                      // Demonstrate getPerimeter and getArea for both instances
+                      genericShape.getPerimeter();  // Output: Calculating perimeter of a generic shape
+                      genericShape.getArea();       // Output: Calculating area of a generic shape
+              
+                      myCircle.getPerimeter();      // Output: Calculating perimeter of a circle: 31.41592653589793
+                      myCircle.getArea();           // Output: Calculating area of a circle: 78.53981633974483
+                  }
+              } 
+</code></pre>
+<h3>Output</h3>
+<pre class="code" style="padding: 2%;">
+Calculating perimeter of a generic shape 
+
+Calculating area of a generic shape 
+
+Calculating perimeter of a circle: 31.41592653589793 
+
+Calculating area of a circle: 78.53981633974483
+</pre>
+            <!-- previous next buttons -->
+            <!-- <div class="toggle-page-btns">
+                <a href="plsql2.html" class="button">Next &rarr;</a>
+            </div> -->
+        </div>
+    </div>
+    <footer>
+        Copyright &copy; 2023 Squirrel<span class="primary-color">Codes</span>
+    </footer>
+</body>
+
+</html>

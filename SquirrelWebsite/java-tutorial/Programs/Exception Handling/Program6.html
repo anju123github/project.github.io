@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Squirrel-Codes</title>
+    <link rel="stylesheet" href="../../../index.css">
+    <link rel="shortcut icon" href="../../../images/logo-dark.svg" type="image/x-icon">
+</head>
+
+<body>
+
+    <header class="sticky">
+        <a href="/index.html" class="webname">
+            <img src="../../../images/logo-dark.svg" alt="">
+            Squirrel<span class="primary-color">Codes</span>
+        </a>
+        <nav>
+            <a href="../../../index.html">Home</a>
+            <a href="../../../dbms-tutorial">DBMS</a>
+            <a href="../../plsql-tutorial/" class="active">PL/SQL</a>
+            <a href="../../java.html">Java</a>
+            <a href="../../../about.html">About</a>
+        </nav>
+    </header>
+
+    <h2 class="center tutorial">Java Tutorial</h2>
+    <hr>
+    <div class="content-box">
+        <div class="sidebar">
+            <a class="primary-color">Programs</a>
+            <a href="../../Programs/Exception Handling/Program1.html" class="sidelinks sideactive">Program 1</a>
+            <a href="../../Programs/Exception Handling/Program2.html" class="sidelinks sideactive">Program 2</a>
+            <a href="../../Programs/Exception Handling/Program3.html" class="sidelinks sideactive">Program 3</a>
+            <a href="../../Programs/Exception Handling/Program4.html" class="sidelinks sideactive">Program 4</a>
+            <a href="../../Programs/Exception Handling/Program5.html" class="sidelinks sideactive">Program 5</a>
+            <a href="../../Programs/Exception Handling/Program6.html" class="sidelinks sideactive">Program 6</a>
+            <a href="../../Programs/Exception Handling/Program7.html" class="sidelinks sideactive">Program 7</a>
+            <a href="../../Programs/Exception Handling/Program8.html" class="sidelinks sideactive">Program 8</a>
+            <a href="../../Programs/Exception Handling/Program9.html" class="sidelinks sideactive">Program 9</a>
+            <a href="../../Programs/Exception Handling/Program10.html" class="sidelinks sideactive">Program 10</a>
+            <a href="../../Programs/Exception Handling/Program11.html" class="sidelinks sideactive">Program 11</a>
+            <a href="../../Programs/Exception Handling/Program12.html" class="sidelinks sideactive">Program 12</a>
+            <a href="../../Programs/Exception Handling/Program13.html" class="sidelinks sideactive">Program 13</a>
+           
+        
+        </div>
+        <div class="content">
+            <!-- topic name -->
+            <h3 class="main">Exception Handling</h3>
+
+            <!-- Programs list -->
+            <p>6. Write a Java program that reads a list of integers from the user and throws an exception if any numbers are duplicates</p>
+            <h3>Code</h3>
+            <pre class="code"><code class="language-java">
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Scanner;
+import java.util.Set;
+                                        
+public class DuplicateNumberCheck {
+    public static void main(String[] args) {
+        try {
+            List numbers = readNumbersFromUser();
+            checkDuplicateNumbers(numbers);
+            System.out.println("No duplicate numbers found.");
+        } catch (DuplicateNumberException e) {
+            System.out.println("Error: Duplicate number detected - " + e.getMessage());
+        }
+    }
+                                        
+    private static List readNumbersFromUser() {
+        Scanner scanner = new Scanner(System.in);
+        List numbers = new ArrayList<>();
+                                        
+        System.out.print("Enter the number of integers: ");
+        int count = scanner.nextInt();
+                                        
+        System.out.println("Enter the integers:");
+                                        
+        for (int i = 0; i < count; i++) {
+            int number = scanner.nextInt();
+            numbers.add(number);
+        }
+                                        
+        return numbers;
+    }
+                                        
+    private static void checkDuplicateNumbers(List numbers) throws DuplicateNumberException {
+        Set uniqueNumbers = new HashSet<>();
+        for (int number : numbers) {
+            if (!uniqueNumbers.add(number)) {
+                throw new DuplicateNumberException("Duplicate number found: " + number);
+            }
+        }
+    }
+}
+                                        
+class DuplicateNumberException extends Exception {
+    public DuplicateNumberException(String message) {
+        super(message);
+    }
+}   
+</code></pre>
+<h3>Output</h3>
+<pre class="code" style="padding: 2%;">
+Enter the number of integers: 5 
+
+Enter the integers: 
+
+1 
+
+2 
+
+3 
+
+2 
+
+4 
+
+Error: Duplicate number detected - Duplicate number found: 2 
+</pre>
+            <!-- previous next buttons -->
+            <!-- <div class="toggle-page-btns">
+                <a href="plsql2.html" class="button">Next &rarr;</a>
+            </div> -->
+        </div>
+    </div>
+    <footer>
+        Copyright &copy; 2023 Squirrel<span class="primary-color">Codes</span>
+    </footer>
+</body>
+
+</html>

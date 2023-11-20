@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Squirrel-Codes</title>
+    <link rel="stylesheet" href="../../../index.css">
+    <link rel="shortcut icon" href="../../../images/logo-dark.svg" type="image/x-icon">
+</head>
+
+<body>
+
+    <header class="sticky">
+        <a href="/index.html" class="webname">
+            <img src="../../../images/logo-dark.svg" alt="">
+            Squirrel<span class="primary-color">Codes</span>
+        </a>
+        <nav>
+            <a href="../../../index.html">Home</a>
+            <a href="../../../dbms-tutorial">DBMS</a>
+            <a href="../../plsql-tutorial/" class="active">PL/SQL</a>
+            <a href="../../java.html">Java</a>
+            <a href="../../../about.html">About</a>
+        </nav>
+    </header>
+
+    <h2 class="center tutorial">Java Tutorial</h2>
+    <hr>
+    <div class="content-box">
+        <div class="sidebar">
+            <a class="primary-color">Programs</a>
+            <a href="../../Programs/Inheritance/Program1.html" class="sidelinks sideactive">Program 1</a>
+            <a href="../../Programs/Inheritance/Program2.html" class="sidelinks sideactive">Program 2</a>
+            <a href="../../Programs/Inheritance/Program3.html" class="sidelinks sideactive">Program 3</a>
+            <a href="../../Programs/Inheritance/Program4.html" class="sidelinks sideactive">Program 4</a>
+            <a href="../../Programs/Inheritance/Program5.html" class="sidelinks sideactive">Program 5</a>
+            <a href="../../Programs/Inheritance/Program6.html" class="sidelinks sideactive">Program 6</a>
+            <a href="../../Programs/Inheritance/Program7.html" class="sidelinks sideactive">Program 7</a>
+            <a href="../../Programs/Inheritance/Program8.html" class="sidelinks sideactive">Program 8</a>
+            <a href="../../Programs/Inheritance/Program9.html" class="sidelinks sideactive">Program 9</a>
+            <a href="../../Programs/Inheritance/Program10.html" class="sidelinks sideactive">Program 10</a>
+            <a href="../../Programs/Inheritance/Program11.html" class="sidelinks sideactive">Program 11</a>
+            <a href="../../Programs/Inheritance/Program12.html" class="sidelinks sideactive">Program 12</a>
+            <a href="../../Programs/Inheritance/Program13.html" class="sidelinks sideactive">Program 13</a>
+            <a href="../../Programs/Inheritance/Program14.html" class="sidelinks sideactive">Program 14</a>
+            <a href="../../Programs/Inheritance/Program15.html" class="sidelinks sideactive">Program 15</a>
+            <a href="../../Programs/Inheritance/Program16.html" class="sidelinks sideactive">Program 16</a>
+            <a href="../../Programs/Inheritance/Program17.html" class="sidelinks sideactive">Program 17</a>
+            <a href="../../Programs/Inheritance/Program18.html" class="sidelinks sideactive">Program 18</a>
+            <a href="../../Programs/Inheritance/Program19.html" class="sidelinks sideactive">Program 19</a>
+            <a href="../../Programs/Inheritance/Program20.html" class="sidelinks sideactive">Program 20</a>
+            <a href="../../Programs/Inheritance/Program21.html" class="sidelinks sideactive">Program 21</a>
+            <a href="../../Programs/Inheritance/Program22.html" class="sidelinks sideactive">Program 22</a>
+            <a href="../../Programs/Inheritance/Program23.html" class="sidelinks sideactive">Program 23</a>
+            <a href="../../Programs/Inheritance/Program24.html" class="sidelinks sideactive">Program 24</a>
+            <a href="../../Programs/Inheritance/Program25.html" class="sidelinks sideactive">Program 25</a>
+            <a href="../../Programs/Inheritance/Program26.html" class="sidelinks sideactive">Program 26</a>
+            </div>
+        <div class="content">
+            <!-- topic name -->
+            <h3 class="main">Inheritance</h3>
+
+            <!-- Programs list -->
+            <p>5. Write a Java program to create a class known as "BankAccount" with methods called deposit() and withdraw(). Create a subclass called SavingsAccount that overrides the withdraw() method to prevent withdrawals if the account balance falls below one hundred.</p>
+            <h3>Code</h3>
+            <pre class="code"><code class="language-java">
+// Base class BankAccount
+class BankAccount {
+    // Attributes
+    protected double balance;
+                                        
+    // Constructor
+    public BankAccount(double initialBalance) {
+        this.balance = initialBalance;
+    }
+                                        
+    // Method to deposit money
+    public void deposit(double amount) {
+        balance += amount;
+        System.out.println("Deposit: " + amount);
+        displayBalance();
+    }
+                                        
+    // Method to withdraw money
+    public void withdraw(double amount) {
+        if (balance >= amount) {
+            balance -= amount;
+            System.out.println("Withdrawal: " + amount);
+        } else {
+            System.out.println("Insufficient funds. Withdrawal denied.");
+        }
+        displayBalance();
+    }
+                                        
+    // Method to display the current balance
+    public void displayBalance() {
+        System.out.println("Current Balance: " + balance);
+    }
+}
+                                        
+// Subclass SavingsAccount extending BankAccount
+class SavingsAccount extends BankAccount {
+    // Constructor
+    public SavingsAccount(double initialBalance) {
+        super(initialBalance);
+    }
+                                        
+    // Override the withdraw method to prevent withdrawals below one hundred
+    
+    public void withdraw(double amount) {
+        if (balance - amount >= 100) {
+            super.withdraw(amount);
+        } else {
+            System.out.println("Withdrawal denied. Minimum balance of 100 required.");
+        }
+    }
+}
+                                        
+// Main class
+public class BankAccountExample {
+    public static void main(String[] args) {
+        // Create an instance of BankAccount
+        BankAccount myBankAccount = new BankAccount(500.0);
+
+        // Create an instance of SavingsAccount
+        SavingsAccount mySavingsAccount = new SavingsAccount(200.0);
+
+        // Demonstrate deposit and withdraw for both instances
+        myBankAccount.deposit(300.0);
+        myBankAccount.withdraw(200.0);
+
+        System.out.println(); // Add a separator for better output readability
+
+        mySavingsAccount.deposit(150.0);
+        mySavingsAccount.withdraw(50.0);
+        mySavingsAccount.withdraw(150.0);
+    }
+}
+</code></pre>
+<h3>Output</h3>
+<pre class="code" style="padding: 2%;">
+    Deposit: 300.0 
+
+    Current Balance: 800.0 
+    
+    Withdrawal: 200.0 
+    
+    Current Balance: 600.0 
+    
+     
+    
+    Deposit: 150.0 
+    
+    Current Balance: 350.0 
+    
+    Withdrawal: 50.0 
+    
+    Current Balance: 300.0 
+    
+    Withdrawal denied. Minimum balance of 100 required. 
+    
+    Current Balance: 300.0 
+    
+</pre>
+            <!-- previous next buttons -->
+            <!-- <div class="toggle-page-btns">
+                <a href="plsql2.html" class="button">Next &rarr;</a>
+            </div> -->
+        </div>
+    </div>
+    <footer>
+        Copyright &copy; 2023 Squirrel<span class="primary-color">Codes</span>
+    </footer>
+</body>
+
+</html>

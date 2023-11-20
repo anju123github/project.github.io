@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Squirrel-Codes</title>
+    <link rel="stylesheet" href="../../../index.css">
+    <link rel="shortcut icon" href="../../../images/logo-dark.svg" type="image/x-icon">
+</head>
+
+<body>
+
+    <header class="sticky">
+        <a href="/index.html" class="webname">
+            <img src="../../../images/logo-dark.svg" alt="">
+            Squirrel<span class="primary-color">Codes</span>
+        </a>
+        <nav>
+            <a href="../../../index.html">Home</a>
+            <a href="../../../dbms-tutorial">DBMS</a>
+            <a href="../../plsql-tutorial/" class="active">PL/SQL</a>
+            <a href="../../java.html">Java</a>
+            <a href="../../../about.html">About</a>
+        </nav>
+    </header>
+
+    <h2 class="center tutorial">Java Tutorial</h2>
+    <hr>
+    <div class="content-box">
+        <div class="sidebar">
+            <a class="primary-color">Programs</a>
+            <a href="../../Programs/Inheritance/Program1.html" class="sidelinks sideactive">Program 1</a>
+            <a href="../../Programs/Inheritance/Program2.html" class="sidelinks sideactive">Program 2</a>
+            <a href="../../Programs/Inheritance/Program3.html" class="sidelinks sideactive">Program 3</a>
+            <a href="../../Programs/Inheritance/Program4.html" class="sidelinks sideactive">Program 4</a>
+            <a href="../../Programs/Inheritance/Program5.html" class="sidelinks sideactive">Program 5</a>
+            <a href="../../Programs/Inheritance/Program6.html" class="sidelinks sideactive">Program 6</a>
+            <a href="../../Programs/Inheritance/Program7.html" class="sidelinks sideactive">Program 7</a>
+            <a href="../../Programs/Inheritance/Program8.html" class="sidelinks sideactive">Program 8</a>
+            <a href="../../Programs/Inheritance/Program9.html" class="sidelinks sideactive">Program 9</a>
+            <a href="../../Programs/Inheritance/Program10.html" class="sidelinks sideactive">Program 10</a>
+            <a href="../../Programs/Inheritance/Program11.html" class="sidelinks sideactive">Program 11</a>
+            <a href="../../Programs/Inheritance/Program12.html" class="sidelinks sideactive">Program 12</a>
+            <a href="../../Programs/Inheritance/Program13.html" class="sidelinks sideactive">Program 13</a>
+            <a href="../../Programs/Inheritance/Program14.html" class="sidelinks sideactive">Program 14</a>
+            <a href="../../Programs/Inheritance/Program15.html" class="sidelinks sideactive">Program 15</a>
+            <a href="../../Programs/Inheritance/Program16.html" class="sidelinks sideactive">Program 16</a>
+            <a href="../../Programs/Inheritance/Program17.html" class="sidelinks sideactive">Program 17</a>
+            <a href="../../Programs/Inheritance/Program18.html" class="sidelinks sideactive">Program 18</a>
+            <a href="../../Programs/Inheritance/Program19.html" class="sidelinks sideactive">Program 19</a>
+            <a href="../../Programs/Inheritance/Program20.html" class="sidelinks sideactive">Program 20</a>
+            <a href="../../Programs/Inheritance/Program21.html" class="sidelinks sideactive">Program 21</a>
+            <a href="../../Programs/Inheritance/Program22.html" class="sidelinks sideactive">Program 22</a>
+            <a href="../../Programs/Inheritance/Program23.html" class="sidelinks sideactive">Program 23</a>
+            <a href="../../Programs/Inheritance/Program24.html" class="sidelinks sideactive">Program 24</a>
+            <a href="../../Programs/Inheritance/Program25.html" class="sidelinks sideactive">Program 25</a>
+            <a href="../../Programs/Inheritance/Program26.html" class="sidelinks sideactive">Program 26</a>
+            </div>
+        <div class="content">
+            <!-- topic name -->
+            <h3 class="main">Inheritance</h3>
+
+            <!-- Programs list -->
+            <p>9. Write a Java program to create a vehicle class hierarchy. The base class should be Vehicle, with subclasses Truck, Car and Motorcycle. Each subclass should have properties such as make, model, year, and fuel type. Implement methods for calculating fuel efficiency, distance traveled, and maximum speed.</p>
+            <h3>Code</h3>
+            <pre class="code"><code class="language-java">
+// Base class Vehicle
+class Vehicle {
+    // Properties
+    protected String make;
+    protected String model;
+    protected int year;
+    protected String fuelType;
+                                        
+    // Constructor
+    public Vehicle(String make, String model, int year, String fuelType) {
+        this.make = make;
+        this.model = model;
+        this.year = year;
+        this.fuelType = fuelType;
+    }
+                                        
+    // Method to calculate fuel efficiency
+    public double calculateFuelEfficiency() {
+        System.out.println("Calculating fuel efficiency for a generic vehicle");
+        return 0.0; // Default fuel efficiency for a generic vehicle
+    }
+                                        
+    // Method to calculate distance traveled
+    public double calculateDistanceTraveled(double speed, double time) {
+        System.out.println("Calculating distance traveled for a generic vehicle");
+        return speed * time;
+    }
+                                        
+    // Method to get maximum speed
+    public int getMaxSpeed() {
+        System.out.println("Getting maximum speed for a generic vehicle");
+        return 0; // Default maximum speed for a generic vehicle
+    }
+}
+                                        
+// Subclass Truck extending Vehicle
+class Truck extends Vehicle {
+    // Constructor
+    public Truck(String make, String model, int year, String fuelType) {
+        super(make, model, year, fuelType);
+    }
+                                        
+    // Override the calculateFuelEfficiency method for Truck
+    
+    public double calculateFuelEfficiency() {
+        // Your logic for calculating fuel efficiency for a truck goes here
+        System.out.println("Calculating fuel efficiency for a truck");
+        return 0.0;
+    }
+                                        
+    // Override the getMaxSpeed method for Truck
+    
+    public int getMaxSpeed() {
+        // Your logic for getting maximum speed for a truck goes here
+        System.out.println("Getting maximum speed for a truck");
+        return 0;
+    }
+}
+                                        
+// Subclass Car extending Vehicle
+class Car extends Vehicle {
+    // Constructor
+    public Car(String make, String model, int year, String fuelType) {
+        super(make, model, year, fuelType);
+    }
+                                        
+    // Override the calculateFuelEfficiency method for Car
+    
+    public double calculateFuelEfficiency() {
+        // Your logic for calculating fuel efficiency for a car goes here
+        System.out.println("Calculating fuel efficiency for a car");
+        return 0.0;
+    }
+                                        
+    // Override the getMaxSpeed method for Car
+    
+    public int getMaxSpeed() {
+        // Your logic for getting maximum speed for a car goes here
+        System.out.println("Getting maximum speed for a car");
+        return 0;
+    }
+}
+                                        
+// Subclass Motorcycle extending Vehicle
+class Motorcycle extends Vehicle {
+    // Constructor
+    public Motorcycle(String make, String model, int year, String fuelType) {
+        super(make, model, year, fuelType);
+    }
+                                        
+    // Override the calculateFuelEfficiency method for Motorcycle
+    
+    public double calculateFuelEfficiency() {
+        // Your logic for calculating fuel efficiency for a motorcycle goes here
+        System.out.println("Calculating fuel efficiency for a motorcycle");
+        return 0.0;
+    }
+                                        
+    // Override the getMaxSpeed method for Motorcycle
+    
+    public int getMaxSpeed() {
+        // Your logic for getting maximum speed for a motorcycle goes here
+        System.out.println("Getting maximum speed for a motorcycle");
+        return 0;
+    }
+}
+                                        
+// Main class
+public class VehicleHierarchyExample {
+    public static void main(String[] args) {
+        // Create an instance of Truck
+        Truck myTruck = new Truck("Ford", "F-150", 2022, "Gasoline");
+                                        
+        // Create an instance of Car
+        Car myCar = new Car("Toyota", "Camry", 2022, "Hybrid");
+                                        
+        // Create an instance of Motorcycle
+        Motorcycle myMotorcycle = new Motorcycle("Harley-Davidson", "Sportster", 2022, "Gasoline");
+                                        
+        // Demonstrate methods for each vehicle type
+        myTruck.calculateFuelEfficiency();
+        myTruck.calculateDistanceTraveled(60.0, 2.5);
+        myTruck.getMaxSpeed();
+                                        
+        myCar.calculateFuelEfficiency();
+        myCar.calculateDistanceTraveled(70.0, 2.0);
+        myCar.getMaxSpeed();
+                                        
+        myMotorcycle.calculateFuelEfficiency();
+        myMotorcycle.calculateDistanceTraveled(80.0, 1.5);
+        myMotorcycle.getMaxSpeed();
+    }
+} 
+</code></pre>
+<h3>Output</h3>
+<pre class="code" style="padding: 2%;">
+Calculating fuel efficiency for a truck 
+
+Calculating distance traveled for a truck 
+
+Getting maximum speed for a truck 
+
+Calculating fuel efficiency for a car 
+
+Calculating distance traveled for a car 
+
+Getting maximum speed for a car 
+
+Calculating fuel efficiency for a motorcycle 
+
+Calculating distance traveled for a motorcycle 
+
+Getting maximum speed for a motorcycle 
+</pre>
+            <!-- previous next buttons -->
+            <!-- <div class="toggle-page-btns">
+                <a href="plsql2.html" class="button">Next &rarr;</a>
+            </div> -->
+        </div>
+    </div>
+    <footer>
+        Copyright &copy; 2023 Squirrel<span class="primary-color">Codes</span>
+    </footer>
+</body>
+
+</html>

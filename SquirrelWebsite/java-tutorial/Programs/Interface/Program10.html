@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Squirrel-Codes</title>
+    <link rel="stylesheet" href="../../../index.css">
+    <link rel="shortcut icon" href="../../../images/logo-dark.svg" type="image/x-icon">
+</head>
+
+<body>
+
+    <header class="sticky">
+        <a href="/index.html" class="webname">
+            <img src="../../../images/logo-dark.svg" alt="">
+            Squirrel<span class="primary-color">Codes</span>
+        </a>
+        <nav>
+            <a href="../../../index.html">Home</a>
+            <a href="../../../dbms-tutorial">DBMS</a>
+            <a href="../../plsql-tutorial/" class="active">PL/SQL</a>
+            <a href="../../java.html">Java</a>
+            <a href="../../../about.html">About</a>
+        </nav>
+    </header>
+
+    <h2 class="center tutorial">Java Tutorial</h2>
+    <hr>
+    <div class="content-box">
+        <div class="sidebar">
+            <a class="primary-color">Programs</a>
+            <a href="../../Programs/Interface/Program1.html" class="sidelinks sideactive">Program 1</a>
+            <a href="../../Programs/Interface/Program2.html" class="sidelinks sideactive">Program 2</a>
+            <a href="../../Programs/Interface/Program3.html" class="sidelinks sideactive">Program 3</a>
+            <a href="../../Programs/Interface/Program4.html" class="sidelinks sideactive">Program 4</a>
+            <a href="../../Programs/Interface/Program5.html" class="sidelinks sideactive">Program 5</a>
+            <a href="../../Programs/Interface/Program6.html" class="sidelinks sideactive">Program 6</a>
+            <a href="../../Programs/Interface/Program7.html" class="sidelinks sideactive">Program 7</a>
+            <a href="../../Programs/Interface/Program8.html" class="sidelinks sideactive">Program 8</a>
+            <a href="../../Programs/Interface/Program9.html" class="sidelinks sideactive">Program 9</a>
+            <a href="../../Programs/Interface/Program10.html" class="sidelinks sideactive">Program 10</a>
+            <a href="../../Programs/Interface/Program11.html" class="sidelinks sideactive">Program 11</a>
+           
+           
+        
+        </div>
+        <div class="content">
+            <!-- topic name -->
+            <h3 class="main">Interface</h3>
+
+            <!-- Programs list -->
+            <p>10. Write a Java program to create an interface Encryptable with methods encrypt (String data) and decrypt (String encryptedData) that define encryption and decryption operations. Create two classes AES and RSA that implement the Encryptable interface and provide their own encryption and decryption algorithms.</p>
+            <h3>Code</h3>
+            <pre class="code"><code class="language-java">
+                
+// Interface for encryptable objects
+interface Encryptable {
+    String encrypt(String data);
+    String decrypt(String encryptedData);
+}
+                                        
+// AES class implementing Encryptable interface
+class AES implements Encryptable {
+    
+    public String encrypt(String data) {
+        // Your AES encryption logic goes here
+        System.out.println("AES encryption for: " + data);
+        return "Encrypted_AES_" + data;
+    }
+                                        
+    
+    public String decrypt(String encryptedData) {
+        // Your AES decryption logic goes here
+        System.out.println("AES decryption for: " + encryptedData);
+        return encryptedData.replace("Encrypted_AES_", "");
+    }
+}
+                                        
+// RSA class implementing Encryptable interface
+class RSA implements Encryptable {
+    
+    public String encrypt(String data) {
+        // Your RSA encryption logic goes here
+        System.out.println("RSA encryption for: " + data);
+        return "Encrypted_RSA_" + data;
+    }
+                                        
+    
+    public String decrypt(String encryptedData) {
+        // Your RSA decryption logic goes here
+        System.out.println("RSA decryption for: " + encryptedData);
+        return encryptedData.replace("Encrypted_RSA_", "");
+    }
+}
+                                        
+// Main class
+public class EncryptableExample {
+    public static void main(String[] args) {
+        // Create instances of encryptable objects
+        Encryptable aesEncryptor = new AES();
+        Encryptable rsaEncryptor = new RSA();
+                                        
+        // Encrypt and decrypt using AES
+        String dataAES = "Sensitive data";
+        String encryptedAES = aesEncryptor.encrypt(dataAES);
+        String decryptedAES = aesEncryptor.decrypt(encryptedAES);
+                                        
+        System.out.println("Original Data: " + dataAES);
+        System.out.println("Encrypted Data (AES): " + encryptedAES);
+        System.out.println("Decrypted Data (AES): " + decryptedAES);
+                                        
+        System.out.println();
+                                        
+        // Encrypt and decrypt using RSA
+        String dataRSA = "Confidential information";
+        String encryptedRSA = rsaEncryptor.encrypt(dataRSA);
+        String decryptedRSA = rsaEncryptor.decrypt(encryptedRSA);
+                                        
+        System.out.println("Original Data: " + dataRSA);
+        System.out.println("Encrypted Data (RSA): " + encryptedRSA);
+        System.out.println("Decrypted Data (RSA): " + decryptedRSA);
+    }
+}
+</code></pre>
+<h3>Output</h3>
+<pre class="code" style="padding: 2%;">
+AES encryption for: Sensitive data 
+
+AES decryption for: Encrypted_AES_Sensitive data 
+
+Original Data: Sensitive data 
+
+Encrypted Data (AES): Encrypted_AES_Sensitive data 
+
+Decrypted Data (AES): Sensitive data 
+
+ 
+
+RSA encryption for: Confidential information 
+
+RSA decryption for: Encrypted_RSA_Confidential information 
+
+Original Data: Confidential information 
+
+Encrypted Data (RSA): Encrypted_RSA_Confidential information 
+
+Decrypted Data (RSA): Confidential information
+</pre>
+            <!-- previous next buttons -->
+            <!-- <div class="toggle-page-btns">
+                <a href="plsql2.html" class="button">Next &rarr;</a>
+            </div> -->
+        </div>
+    </div>
+    <footer>
+        Copyright &copy; 2023 Squirrel<span class="primary-color">Codes</span>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Squirrel-Codes</title>
+    <link rel="stylesheet" href="../../../index.css">
+    <link rel="shortcut icon" href="../../../images/logo-dark.svg" type="image/x-icon">
+</head>
+
+<body>
+
+    <header class="sticky">
+        <a href="/index.html" class="webname">
+            <img src="../../../images/logo-dark.svg" alt="">
+            Squirrel<span class="primary-color">Codes</span>
+        </a>
+        <nav>
+            <a href="../../../index.html">Home</a>
+            <a href="../../../dbms-tutorial">DBMS</a>
+            <a href="../../plsql-tutorial/plsql1.html" class="active">PL/SQL</a>
+            <a href="../../java.html">Java</a>
+            <a href="../../../about.html">About</a>
+        </nav>
+    </header>
+
+    <h2 class="center tutorial">Java Tutorial</h2>
+    <hr>
+    <div class="content-box">
+        <div class="sidebar">
+            <a class="primary-color">Programs</a>
+            <a href="../../Programs/JDBC/Program1.html" class="sidelinks sideactive">Program 1</a>
+            <a href="../../Programs/JDBC/Program2.html" class="sidelinks sideactive">Program 2</a>
+            <a href="../../Programs/JDBC/Program3.html" class="sidelinks sideactive">Program 3</a>
+            <a href="../../Programs/JDBC/Program4.html" class="sidelinks sideactive">Program 4</a>
+            <a href="../../Programs/JDBC/Program5.html" class="sidelinks sideactive">Program 5</a>
+            <a href="../../Programs/JDBC/Program6.html" class="sidelinks sideactive">Program 6</a>
+            <a href="../../Programs/JDBC/Program7.html" class="sidelinks sideactive">Program 7</a>
+            <a href="../../Programs/JDBC/Program8.html" class="sidelinks sideactive">Program 8</a>
+            <a href="../../Programs/JDBC/Program9.html" class="sidelinks sideactive">Program 9</a>
+           
+        </div>
+        <div class="content">
+            <!-- topic name -->
+            <h3 class="main">JDBC</h3>
+
+            <!-- Programs list -->
+            <p>9. Create a Java Program to show, insert, update, delete of the table in Java API through PreparedStatement</p>
+            <h3>Code</h3>
+            <pre class="code"><code class="language-java">
+                
+// Program to insert, delete, update in table using PreparedStatement.
+import java.sql.*;
+import java.util.Scanner;
+
+class Database{
+    Connection c;
+    PreparedStatement s;
+    public Database(String url,String uname,String pass) throws SQLException,ClassNotFoundException{
+    Class.forName("com.mysql.cj.jdbc.Driver");
+         c=DriverManager.getConnection(url,uname,pass);
+    }
+     void insert() throws SQLException {
+    s=c.prepareStatement("insert into users values(?,?,?)");
+    s.setInt(1,13);
+    s.setString(2,"Ankush");
+    s.setString(3,"Ankush@gmail.com");
+System.out.println(s.executeUpdate() +"Row affected");
+   }
+     void delete() throws SQLException {
+        s=c.prepareStatement("delete from users where id=?");
+        s.setInt(1,8);
+System.out.println(s.executeUpdate() +"Row affected");
+        }
+
+     void update() throws SQLException {
+       s=c.prepareStatement("update users set username=? where id=?");
+       s.setString(1,"Srk");
+       s.setInt(2,1);
+       System.out.println(s.executeUpdate() +"Row affected");
+        }
+}
+class Db{
+    public static void main(String str [])throws SQLException,ClassNotFoundException,java.io.IOException{
+        String url = "jdbc:mysql://localhost:3306/mydb";
+        String username = "root";
+        String password = "";
+        Database d=new Database(url,username,password);
+        int c = 5;
+        Scanner sc=new Scanner(System.in);
+        while(c!=4){
+            System.out.println(" Press 1 for insert. \n Press 2 for delete \n Press 3 for update \n Press 4 for Exit");
+            c=sc.nextInt();
+            switch(c){
+              case 1:
+              d.insert();
+              break;
+              
+              case 2:
+              d.delete();
+              break;
+              
+              case 3:
+              d.update();
+              break;
+              case 4:
+              System.out.println("Exit Successfully");
+              break;
+              default :
+              System.out.println("Choose between 1-4");
+              break;
+            }
+        }
+    }
+}
+</code></pre>
+<h3>Output</h3>
+<pre class="code" style="padding: 2%;">
+    <img src="9.png">
+</pre>
+            <!-- previous next buttons -->
+            <!-- <div class="toggle-page-btns">
+                <a href="plsql2.html" class="button">Next &rarr;</a>
+            </div> -->
+        </div>
+    </div>
+    <footer>
+        Copyright &copy; 2023 Squirrel<span class="primary-color">Codes</span>
+    </footer>
+</body>
+
+</html>

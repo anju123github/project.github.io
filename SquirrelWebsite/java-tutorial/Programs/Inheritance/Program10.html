@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Squirrel-Codes</title>
+    <link rel="stylesheet" href="../../../index.css">
+    <link rel="shortcut icon" href="../../../images/logo-dark.svg" type="image/x-icon">
+</head>
+
+<body>
+
+    <header class="sticky">
+        <a href="/index.html" class="webname">
+            <img src="../../../images/logo-dark.svg" alt="">
+            Squirrel<span class="primary-color">Codes</span>
+        </a>
+        <nav>
+            <a href="../../../index.html">Home</a>
+            <a href="../../../dbms-tutorial">DBMS</a>
+            <a href="../../plsql-tutorial/" class="active">PL/SQL</a>
+            <a href="../../java.html">Java</a>
+            <a href="../../../about.html">About</a>
+        </nav>
+    </header>
+
+    <h2 class="center tutorial">Java Tutorial</h2>
+    <hr>
+    <div class="content-box">
+        <div class="sidebar">
+            <a class="primary-color">Programs</a>
+            <a href="../../Programs/Inheritance/Program1.html" class="sidelinks sideactive">Program 1</a>
+            <a href="../../Programs/Inheritance/Program2.html" class="sidelinks sideactive">Program 2</a>
+            <a href="../../Programs/Inheritance/Program3.html" class="sidelinks sideactive">Program 3</a>
+            <a href="../../Programs/Inheritance/Program4.html" class="sidelinks sideactive">Program 4</a>
+            <a href="../../Programs/Inheritance/Program5.html" class="sidelinks sideactive">Program 5</a>
+            <a href="../../Programs/Inheritance/Program6.html" class="sidelinks sideactive">Program 6</a>
+            <a href="../../Programs/Inheritance/Program7.html" class="sidelinks sideactive">Program 7</a>
+            <a href="../../Programs/Inheritance/Program8.html" class="sidelinks sideactive">Program 8</a>
+            <a href="../../Programs/Inheritance/Program9.html" class="sidelinks sideactive">Program 9</a>
+            <a href="../../Programs/Inheritance/Program10.html" class="sidelinks sideactive">Program 10</a>
+            <a href="../../Programs/Inheritance/Program11.html" class="sidelinks sideactive">Program 11</a>
+            <a href="../../Programs/Inheritance/Program12.html" class="sidelinks sideactive">Program 12</a>
+            <a href="../../Programs/Inheritance/Program13.html" class="sidelinks sideactive">Program 13</a>
+            <a href="../../Programs/Inheritance/Program14.html" class="sidelinks sideactive">Program 14</a>
+            <a href="../../Programs/Inheritance/Program15.html" class="sidelinks sideactive">Program 15</a>
+            <a href="../../Programs/Inheritance/Program16.html" class="sidelinks sideactive">Program 16</a>
+            <a href="../../Programs/Inheritance/Program17.html" class="sidelinks sideactive">Program 17</a>
+            <a href="../../Programs/Inheritance/Program18.html" class="sidelinks sideactive">Program 18</a>
+            <a href="../../Programs/Inheritance/Program19.html" class="sidelinks sideactive">Program 19</a>
+            <a href="../../Programs/Inheritance/Program20.html" class="sidelinks sideactive">Program 20</a>
+            <a href="../../Programs/Inheritance/Program21.html" class="sidelinks sideactive">Program 21</a>
+            <a href="../../Programs/Inheritance/Program22.html" class="sidelinks sideactive">Program 22</a>
+            <a href="../../Programs/Inheritance/Program23.html" class="sidelinks sideactive">Program 23</a>
+            <a href="../../Programs/Inheritance/Program24.html" class="sidelinks sideactive">Program 24</a>
+            <a href="../../Programs/Inheritance/Program25.html" class="sidelinks sideactive">Program 25</a>
+            <a href="../../Programs/Inheritance/Program26.html" class="sidelinks sideactive">Program 26</a>
+            </div>
+        <div class="content">
+            <!-- topic name -->
+            <h3 class="main">Inheritance</h3>
+
+            <!-- Programs list -->
+            <p>10. Write a Java program that creates a class hierarchy for employees of a company. The base class should be Employee, with subclasses Manager, Developer, and Programmer. Each subclass should have properties such as name, address, salary, and job title. Implement methods for calculating bonuses, generating performance reports, and managing projects.</p>
+            <h3>Code</h3>
+            <pre class="code"><code class="language-java">
+        
+// Base class Employee
+class Employee {
+    // Properties
+    protected String name;
+    protected String address;
+    protected double salary;
+    protected String jobTitle;
+                                        
+    // Constructor
+    public Employee(String name, String address, double salary, String jobTitle) {
+        this.name = name;
+        this.address = address;
+        this.salary = salary;
+        this.jobTitle = jobTitle;
+    }
+                                        
+    // Method to calculate bonus
+    public double calculateBonus() {
+        System.out.println("Calculating bonus for a generic employee");
+        return 0.0; // Default bonus for a generic employee
+    }
+                                        
+    // Method to generate performance report
+    public void generatePerformanceReport() {
+        System.out.println("Generating performance report for a generic employee");
+        // Your logic for generating a performance report goes here
+    }
+                                        
+    // Method to manage projects
+    public void manageProjects() {
+        System.out.println("Managing projects for a generic employee");
+        // Your logic for managing projects goes here
+    }
+}
+                                        
+// Subclass Manager extending Employee
+class Manager extends Employee {
+    // Constructor
+    public Manager(String name, String address, double salary, String jobTitle) {
+        super(name, address, salary, jobTitle);
+    }
+                                        
+    // Override the calculateBonus method for Manager
+    
+    public double calculateBonus() {
+        // Your logic for calculating bonus for a manager goes here
+        System.out.println("Calculating bonus for a manager");
+        return 0.1 * salary; // Example: 10% of salary as bonus for a manager
+    }
+                                        
+    // Override the manageProjects method for Manager
+    
+    public void manageProjects() {
+        // Your logic for managing projects as a manager goes here
+        System.out.println("Managing projects as a manager");
+    }
+}
+                                        
+// Subclass Developer extending Employee
+class Developer extends Employee {
+    // Constructor
+    public Developer(String name, String address, double salary, String jobTitle) {
+        super(name, address, salary, jobTitle);
+    }
+                                        
+    // Override the calculateBonus method for Developer
+    
+    public double calculateBonus() {
+        // Your logic for calculating bonus for a developer goes here
+        System.out.println("Calculating bonus for a developer");
+        return 0.08 * salary; // Example: 8% of salary as bonus for a developer
+    }
+                                        
+    // Override the generatePerformanceReport method for Developer
+    
+    public void generatePerformanceReport() {
+        // Your logic for generating a performance report as a developer goes here
+        System.out.println("Generating performance report as a developer");
+    }
+}
+                                        
+// Subclass Programmer extending Developer
+class Programmer extends Developer {
+    // Constructor
+    public Programmer(String name, String address, double salary, String jobTitle) {
+        super(name, address, salary, jobTitle);
+    }
+                                        
+    // Additional methods or overrides specific to Programmer can be added here
+}
+                                        
+// Main class
+public class EmployeeHierarchyExample {
+    public static void main(String[] args) {
+        // Create an instance of Manager
+        Manager manager = new Manager("John Manager", "123 Main St", 80000.0, "Manager");
+
+        // Create an instance of Developer
+        Developer developer = new Developer("Alice Developer", "456 Oak St", 70000.0, "Developer");
+
+        // Create an instance of Programmer
+        Programmer programmer = new Programmer("Bob Programmer", "789 Pine St", 60000.0, "Programmer");
+
+        // Demonstrate methods for each employee type
+        System.out.println("Manager Bonus: $" + manager.calculateBonus());
+        manager.manageProjects();
+
+        System.out.println("\nDeveloper Bonus: $" + developer.calculateBonus());
+        developer.generatePerformanceReport();
+
+        // Programmer inherits methods from Developer
+        System.out.println("\nProgrammer Bonus: $" + programmer.calculateBonus());
+        programmer.generatePerformanceReport();
+    }
+} 
+</code></pre>
+<h3>Output</h3>
+<pre class="code" style="padding: 2%;">
+    Calculating bonus for a manager 
+
+    Managing projects as a manager 
+    
+    
+    
+    Calculating bonus for a developer 
+    
+    Generating performance report as a developer 
+    
+     
+    
+    Calculating bonus for a programmer 
+    
+    Generating performance report as a developer 
+</pre>
+            <!-- previous next buttons -->
+            <!-- <div class="toggle-page-btns">
+                <a href="plsql2.html" class="button">Next &rarr;</a>
+            </div> -->
+        </div>
+    </div>
+    <footer>
+        Copyright &copy; 2023 Squirrel<span class="primary-color">Codes</span>
+    </footer>
+</body>
+
+</html>

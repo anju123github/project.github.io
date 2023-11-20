@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Squirrel-Codes</title>
+    <link rel="stylesheet" href="../../../index.css">
+    <link rel="shortcut icon" href="../../../images/logo-dark.svg" type="image/x-icon">
+</head>
+
+<body>
+
+    <header class="sticky">
+        <a href="/index.html" class="webname">
+            <img src="../../../images/logo-dark.svg" alt="">
+            Squirrel<span class="primary-color">Codes</span>
+        </a>
+        <nav>
+            <a href="../../../index.html">Home</a>
+            <a href="../../../dbms-tutorial">DBMS</a>
+            <a href="../../plsql-tutorial/" class="active">PL/SQL</a>
+            <a href="../../java.html">Java</a>
+            <a href="../../../about.html">About</a>
+        </nav>
+    </header>
+
+    <h2 class="center tutorial">Java Tutorial</h2>
+    <hr>
+    <div class="content-box">
+        <div class="sidebar">
+            <a class="primary-color">Programs</a>
+            <a href="../../Programs/OOPS/Program1.html" class="sidelinks sideactive">Program 1</a>
+            <a href="../../Programs/OOPS/Program2.html" class="sidelinks sideactive">Program 2</a>
+            <a href="../../Programs/OOPS/Program3.html" class="sidelinks sideactive">Program 3</a>
+            <a href="../../Programs/OOPS/Program4.html" class="sidelinks sideactive">Program 4</a>
+            <a href="../../Programs/OOPS/Program5.html" class="sidelinks sideactive">Program 5</a>
+            <a href="../../Programs/OOPS/Program6.html" class="sidelinks sideactive">Program 6</a>
+            <a href="../../Programs/OOPS/Program7.html" class="sidelinks sideactive">Program 7</a>
+            <a href="../../Programs/OOPS/Program8.html" class="sidelinks sideactive">Program 8</a>
+            <a href="../../Programs/OOPS/Program9.html" class="sidelinks sideactive">Program 9</a>
+            <a href="../../Programs/OOPS/Program10.html" class="sidelinks sideactive">Program 10</a>
+            <a href="../../Programs/OOPS/Program11.html" class="sidelinks sideactive">Program 11</a>
+            <a href="../../Programs/OOPS/Program12.html" class="sidelinks sideactive">Program 12</a>
+            <a href="../../Programs/OOPS/Program13.html" class="sidelinks sideactive">Program 13</a>
+            <a href="../../Programs/OOPS/Program14.html" class="sidelinks sideactive">Program 14</a>
+            <a href="../../Programs/OOPS/Program15.html" class="sidelinks sideactive">Program 15</a>
+            <a href="../../Programs/OOPS/Program16.html" class="sidelinks sideactive">Program 16</a>
+            <a href="../../Programs/OOPS/Program17.html" class="sidelinks sideactive">Program 17</a>
+            <a href="../../Programs/OOPS/Program18.html" class="sidelinks sideactive">Program 18</a>
+            <a href="../../Programs/OOPS/Program19.html" class="sidelinks sideactive">Program 19</a>
+            <a href="../../Programs/OOPS/Program20.html" class="sidelinks sideactive">Program 20</a>
+            <a href="../../Programs/OOPS/Program21.html" class="sidelinks sideactive">Program 21</a>
+            <a href="../../Programs/OOPS/Program22.html" class="sidelinks sideactive">Program 22</a>
+            <a href="../../Programs/OOPS/Program23.html" class="sidelinks sideactive">Program 23</a>
+            <a href="../../Programs/OOPS/Program24.html" class="sidelinks sideactive">Program 24</a>
+            <a href="../../Programs/OOPS/Program25.html" class="sidelinks sideactive">Program 25</a>
+            <a href="../../Programs/OOPS/Program26.html" class="sidelinks sideactive">Program 26</a>
+            <a href="../../Programs/OOPS/Program27.html" class="sidelinks sideactive">Program 27</a>
+            <a href="../../Programs/OOPS/Program28.html" class="sidelinks sideactive">Program 28</a>
+            <a href="../../Programs/OOPS/Program29.html" class="sidelinks sideactive">Program 29</a>
+            <a href="../../Programs/OOPS/Program30.html" class="sidelinks sideactive">Program 30</a>
+            <a href="../../Programs/OOPS/Program31.html" class="sidelinks sideactive">Program 31</a>
+            <a href="../../Programs/OOPS/Program32.html" class="sidelinks sideactive">Program 32</a>
+            </div>
+        <div class="content">
+            <!-- topic name -->
+            <h3 class="main">OOPs</h3>
+
+            <!-- Programs list -->
+            <p>18. Write a Java program to create a class called "Restaurant" with attributes for menu items, prices, and ratings, and methods to add and remove items, and to calculate average rating.</p>
+            <h3>Code</h3>
+            <pre class="code"><code class="language-java">
+                
+import java.util.HashMap;
+import java.util.Map;
+
+class Restaurant {
+    private Map menu; // Map to store menu items and prices
+    private Map ratings; // Map to store ratings for each item
+
+    // Constructor
+    public Restaurant() {
+        this.menu = new HashMap<>();
+        this.ratings = new HashMap<>();
+    }
+
+    // Method to add an item to the menu
+    public void addItem(String itemName, double price) {
+        menu.put(itemName, price);
+        ratings.put(itemName, 0); // Initialize the rating to 0 for the new item
+    }
+
+    // Method to remove an item from the menu
+    public void removeItem(String itemName) {
+        menu.remove(itemName);
+        ratings.remove(itemName);
+    }
+
+    // Method to add a rating for an item
+    public void addRating(String itemName, int rating) {
+        if (ratings.containsKey(itemName)) {
+            ratings.put(itemName, ratings.get(itemName) + rating);
+        }
+    }
+
+    // Method to calculate the average rating for all items
+    public double calculateAverageRating() {
+        if (ratings.isEmpty()) {
+            return 0.0;
+        }
+
+        int totalRatings = 0;
+        int numberOfItems = ratings.size();
+
+        for (int rating : ratings.values()) {
+            totalRatings += rating;
+        }
+
+        return (double) totalRatings / numberOfItems;
+    }
+
+    // Method to display the menu
+    public void displayMenu() {
+        System.out.println("Menu:");
+        for (Map.Entry entry : menu.entrySet()) {
+            System.out.println(entry.getKey() + " - $" + entry.getValue());
+        }
+    }
+}
+
+public class RestaurantDemo {
+    public static void main(String[] args) {
+        // Create a Restaurant object
+        Restaurant restaurant = new Restaurant();
+
+        // Add items to the menu
+        restaurant.addItem("Burger", 8.99);
+        restaurant.addItem("Pizza", 12.99);
+        restaurant.addItem("Salad", 6.99);
+
+        // Display the menu
+        restaurant.displayMenu();
+
+        // Add ratings for items
+        restaurant.addRating("Burger", 4);
+        restaurant.addRating("Pizza", 5);
+        restaurant.addRating("Salad", 3);
+
+        // Display average rating
+        System.out.println("Average Rating: " + restaurant.calculateAverageRating());
+
+        // Remove an item from the menu
+        restaurant.removeItem("Salad");
+
+        // Display the updated menu
+        restaurant.displayMenu();
+    }
+}
+</code></pre>
+<h3>Output</h3>
+<pre class="code" style="padding: 2%;">
+Menu:
+Burger - $8.99
+Pizza - $12.99
+Salad - $6.99
+Average Rating: 4.0
+Menu:
+Burger - $8.99
+Pizza - $12.99
+</pre>
+            <!-- previous next buttons -->
+            <!-- <div class="toggle-page-btns">
+                <a href="plsql2.html" class="button">Next &rarr;</a>
+            </div> -->
+        </div>
+    </div>
+    <footer>
+        Copyright &copy; 2023 Squirrel<span class="primary-color">Codes</span>
+    </footer>
+</body>
+
+</html>

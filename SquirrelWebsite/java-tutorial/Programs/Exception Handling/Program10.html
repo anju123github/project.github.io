@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Squirrel-Codes</title>
+    <link rel="stylesheet" href="../../../index.css">
+    <link rel="shortcut icon" href="../../../images/logo-dark.svg" type="image/x-icon">
+</head>
+
+<body>
+
+    <header class="sticky">
+        <a href="/index.html" class="webname">
+            <img src="../../../images/logo-dark.svg" alt="">
+            Squirrel<span class="primary-color">Codes</span>
+        </a>
+        <nav>
+            <a href="../../../index.html">Home</a>
+            <a href="../../../dbms-tutorial">DBMS</a>
+            <a href="../../plsql-tutorial/" class="active">PL/SQL</a>
+            <a href="../../java.html">Java</a>
+            <a href="../../../about.html">About</a>
+        </nav>
+    </header>
+
+    <h2 class="center tutorial">Java Tutorial</h2>
+    <hr>
+    <div class="content-box">
+        <div class="sidebar">
+            <a class="primary-color">Programs</a>
+            <a href="../../Programs/Exception Handling/Program1.html" class="sidelinks sideactive">Program 1</a>
+            <a href="../../Programs/Exception Handling/Program2.html" class="sidelinks sideactive">Program 2</a>
+            <a href="../../Programs/Exception Handling/Program3.html" class="sidelinks sideactive">Program 3</a>
+            <a href="../../Programs/Exception Handling/Program4.html" class="sidelinks sideactive">Program 4</a>
+            <a href="../../Programs/Exception Handling/Program5.html" class="sidelinks sideactive">Program 5</a>
+            <a href="../../Programs/Exception Handling/Program6.html" class="sidelinks sideactive">Program 6</a>
+            <a href="../../Programs/Exception Handling/Program7.html" class="sidelinks sideactive">Program 7</a>
+            <a href="../../Programs/Exception Handling/Program8.html" class="sidelinks sideactive">Program 8</a>
+            <a href="../../Programs/Exception Handling/Program9.html" class="sidelinks sideactive">Program 9</a>
+            <a href="../../Programs/Exception Handling/Program10.html" class="sidelinks sideactive">Program 10</a>
+            <a href="../../Programs/Exception Handling/Program11.html" class="sidelinks sideactive">Program 11</a>
+            <a href="../../Programs/Exception Handling/Program12.html" class="sidelinks sideactive">Program 12</a>
+            <a href="../../Programs/Exception Handling/Program13.html" class="sidelinks sideactive">Program 13</a>
+           
+        
+        </div>
+        <div class="content">
+            <!-- topic name -->
+            <h3 class="main">Exception Handling</h3>
+
+            <!-- Programs list -->
+            <p>10. Write a Java program to throw the SQL Query, insert, delete, update, if not successful then throw an exception</p>
+            <h3>Code</h3>
+            <pre class="code"><code class="language-java">
+                
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+                                        
+public class SQLOperationsExample {
+    public static void main(String[] args) {
+        try {
+            // Provide the appropriate driver class name
+            String driver = "com.mysql.cj.jdbc.Driver";
+                                        
+            // Provide the database URL, username, and password
+            String jdbcUrl = "jdbc:mysql://localhost:3306/your_database";
+            String username = "your_username";
+            String password = "your_password";
+                                        
+            // Load the JDBC driver
+            loadDriver(driver);
+                                        
+            // Connect to the database
+            Connection connection = DriverManager.getConnection(jdbcUrl, username, password);
+            System.out.println("Connected to the database successfully!");
+                                        
+            // Perform SQL operations
+            executeInsert(connection);
+            executeUpdate(connection);
+            executeDelete(connection);
+                                        
+            // Close the connection when done
+            connection.close();
+        } catch (SQLException | DatabaseConnectionException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+                                        
+    private static void loadDriver(String driver) throws DatabaseConnectionException {
+        try {
+            Class.forName(driver);
+        } catch (ClassNotFoundException e) {
+            throw new DatabaseConnectionException("Failed to load JDBC driver: " + e.getMessage());
+        }
+    }
+                                        
+    private static void executeInsert(Connection connection) throws SQLException {
+        try (Statement statement = connection.createStatement()) {
+            // Example insert query
+            String insertQuery = "INSERT INTO your_table (column1, column2) VALUES ('value1', 'value2')";
+            statement.executeUpdate(insertQuery);
+            System.out.println("Insert operation successful.");
+        } catch (SQLException e) {
+            throw new SQLException("Error executing insert query: " + e.getMessage());
+        }
+    }
+                                        
+    private static void executeUpdate(Connection connection) throws SQLException {
+        try (Statement statement = connection.createStatement()) {
+            // Example update query
+            String updateQuery = "UPDATE your_table SET column1 = 'new_value' WHERE condition";
+            statement.executeUpdate(updateQuery);
+            System.out.println("Update operation successful.");
+        } catch (SQLException e) {
+            throw new SQLException("Error executing update query: " + e.getMessage());
+        }
+    }
+                                        
+    private static void executeDelete(Connection connection) throws SQLException {
+        try (Statement statement = connection.createStatement()) {
+            // Example delete query
+            String deleteQuery = "DELETE FROM your_table WHERE condition";
+            statement.executeUpdate(deleteQuery);
+            System.out.println("Delete operation successful.");
+        } catch (SQLException e) {
+            throw new SQLException("Error executing delete query: " + e.getMessage());
+        }
+    }
+}
+                                        
+class DatabaseConnectionException extends Exception {
+    public DatabaseConnectionException(String message) {
+        super(message);
+    }
+} 
+</code></pre>
+<h3>Output</h3>
+<pre class="code" style="padding: 2%;">
+Connected to the database successfully! 
+
+Insert operation successful. 
+
+Update operation successful. 
+
+Delete operation successful.
+</pre>
+            <!-- previous next buttons -->
+            <!-- <div class="toggle-page-btns">
+                <a href="plsql2.html" class="button">Next &rarr;</a>
+            </div> -->
+        </div>
+    </div>
+    <footer>
+        Copyright &copy; 2023 Squirrel<span class="primary-color">Codes</span>
+    </footer>
+</body>
+
+</html>

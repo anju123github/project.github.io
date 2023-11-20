@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Squirrel-Codes</title>
+    <link rel="stylesheet" href="../../../index.css">
+    <link rel="shortcut icon" href="../../../images/logo-dark.svg" type="image/x-icon">
+</head>
+
+<body>
+
+    <header class="sticky">
+        <a href="/index.html" class="webname">
+            <img src="../../../images/logo-dark.svg" alt="">
+            Squirrel<span class="primary-color">Codes</span>
+        </a>
+        <nav>
+            <a href="../../../index.html">Home</a>
+            <a href="../../../dbms-tutorial">DBMS</a>
+            <a href="../../plsql-tutorial/" class="active">PL/SQL</a>
+            <a href="../../java.html">Java</a>
+            <a href="../../../about.html">About</a>
+        </nav>
+    </header>
+
+    <h2 class="center tutorial">Java Tutorial</h2>
+    <hr>
+    <div class="content-box">
+        <div class="sidebar">
+            <a class="primary-color">Programs</a>
+            <a href="../../Programs/OOPS/Program1.html" class="sidelinks sideactive">Program 1</a>
+            <a href="../../Programs/OOPS/Program2.html" class="sidelinks sideactive">Program 2</a>
+            <a href="../../Programs/OOPS/Program3.html" class="sidelinks sideactive">Program 3</a>
+            <a href="../../Programs/OOPS/Program4.html" class="sidelinks sideactive">Program 4</a>
+            <a href="../../Programs/OOPS/Program5.html" class="sidelinks sideactive">Program 5</a>
+            <a href="../../Programs/OOPS/Program6.html" class="sidelinks sideactive">Program 6</a>
+            <a href="../../Programs/OOPS/Program7.html" class="sidelinks sideactive">Program 7</a>
+            <a href="../../Programs/OOPS/Program8.html" class="sidelinks sideactive">Program 8</a>
+            <a href="../../Programs/OOPS/Program9.html" class="sidelinks sideactive">Program 9</a>
+            <a href="../../Programs/OOPS/Program10.html" class="sidelinks sideactive">Program 10</a>
+            <a href="../../Programs/OOPS/Program11.html" class="sidelinks sideactive">Program 11</a>
+            <a href="../../Programs/OOPS/Program12.html" class="sidelinks sideactive">Program 12</a>
+            <a href="../../Programs/OOPS/Program13.html" class="sidelinks sideactive">Program 13</a>
+            <a href="../../Programs/OOPS/Program14.html" class="sidelinks sideactive">Program 14</a>
+            <a href="../../Programs/OOPS/Program15.html" class="sidelinks sideactive">Program 15</a>
+            <a href="../../Programs/OOPS/Program16.html" class="sidelinks sideactive">Program 16</a>
+            <a href="../../Programs/OOPS/Program17.html" class="sidelinks sideactive">Program 17</a>
+            <a href="../../Programs/OOPS/Program18.html" class="sidelinks sideactive">Program 18</a>
+            <a href="../../Programs/OOPS/Program19.html" class="sidelinks sideactive">Program 19</a>
+            <a href="../../Programs/OOPS/Program20.html" class="sidelinks sideactive">Program 20</a>
+            <a href="../../Programs/OOPS/Program21.html" class="sidelinks sideactive">Program 21</a>
+            <a href="../../Programs/OOPS/Program22.html" class="sidelinks sideactive">Program 22</a>
+            <a href="../../Programs/OOPS/Program23.html" class="sidelinks sideactive">Program 23</a>
+            <a href="../../Programs/OOPS/Program24.html" class="sidelinks sideactive">Program 24</a>
+            <a href="../../Programs/OOPS/Program25.html" class="sidelinks sideactive">Program 25</a>
+            <a href="../../Programs/OOPS/Program26.html" class="sidelinks sideactive">Program 26</a>
+            <a href="../../Programs/OOPS/Program27.html" class="sidelinks sideactive">Program 27</a>
+            <a href="../../Programs/OOPS/Program28.html" class="sidelinks sideactive">Program 28</a>
+            <a href="../../Programs/OOPS/Program29.html" class="sidelinks sideactive">Program 29</a>
+            <a href="../../Programs/OOPS/Program30.html" class="sidelinks sideactive">Program 30</a>
+            <a href="../../Programs/OOPS/Program31.html" class="sidelinks sideactive">Program 31</a>
+            <a href="../../Programs/OOPS/Program32.html" class="sidelinks sideactive">Program 32</a>
+            </div>
+        <div class="content">
+            <!-- topic name -->
+            <h3 class="main">OOPs</h3>
+
+            <!-- Programs list -->
+            <p>14. Write a Java program to create a class called "School" with attributes for students, teachers, and classes, and methods to add and remove students and teachers, and to create classes.</p>
+            <h3>Code</h3>
+            <pre class="code"><code class="language-java">
+                
+
+import java.util.ArrayList;
+import java.util.List;
+
+class Student {
+    private String studentName;
+
+    public Student(String studentName) {
+        this.studentName = studentName;
+    }
+
+    public String getStudentName() {
+        return studentName;
+    }
+}
+
+class Teacher {
+    private String teacherName;
+
+    public Teacher(String teacherName) {
+        this.teacherName = teacherName;
+    }
+
+    public String getTeacherName() {
+        return teacherName;
+    }
+}
+
+class SchoolClass {
+    private String className;
+    private Teacher teacher;
+    private List students;
+
+    public SchoolClass(String className, Teacher teacher) {
+        this.className = className;
+        this.teacher = teacher;
+        this.students = new ArrayList<>();
+    }
+
+    public String getClassName() {
+        return className;
+    }
+
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public List getStudents() {
+        return students;
+    }
+
+    public void addStudent(Student student) {
+        students.add(student);
+    }
+
+    public void removeStudent(Student student) {
+        students.remove(student);
+    }
+}
+
+class School {
+    private List students;
+    private List teachers;
+    private List classes;
+
+    public School() {
+        this.students = new ArrayList<>();
+        this.teachers = new ArrayList<>();
+        this.classes = new ArrayList<>();
+    }
+
+    public void addStudent(Student student) {
+        students.add(student);
+        System.out.println("Added student: " + student.getStudentName());
+    }
+
+    public void removeStudent(Student student) {
+        students.remove(student);
+        System.out.println("Removed student: " + student.getStudentName());
+    }
+
+    public void addTeacher(Teacher teacher) {
+        teachers.add(teacher);
+        System.out.println("Added teacher: " + teacher.getTeacherName());
+    }
+
+    public void removeTeacher(Teacher teacher) {
+        teachers.remove(teacher);
+        System.out.println("Removed teacher: " + teacher.getTeacherName());
+    }
+
+    public void createClass(String className, Teacher teacher) {
+        SchoolClass schoolClass = new SchoolClass(className, teacher);
+        classes.add(schoolClass);
+        System.out.println("Created class: " + className + " with teacher: " + teacher.getTeacherName());
+    }
+}
+
+public class SchoolTest {
+    public static void main(String[] args) {
+        // Create an instance of the School class
+        School mySchool = new School();
+
+        // Add students and teachers to the school
+        mySchool.addStudent(new Student("John Doe"));
+        mySchool.addStudent(new Student("Jane Doe"));
+        mySchool.addTeacher(new Teacher("Mr. Smith"));
+
+        // Create a class and add students to it
+        mySchool.createClass("Math Class", new Teacher("Mr. Smith"));
+        SchoolClass mathClass = mySchool.classes.get(0);
+        mathClass.addStudent(new Student("Alice"));
+        mathClass.addStudent(new Student("Bob"));
+
+        // Display information about the school, classes, and students
+        System.out.println("\nSchool Information:");
+        System.out.println("Students: " + mySchool.students.size());
+        System.out.println("Teachers: " + mySchool.teachers.size());
+        System.out.println("Classes: " + mySchool.classes.size());
+
+        System.out.println("\nClass Information:");
+        System.out.println("Class Name: " + mathClass.getClassName());
+        System.out.println("Teacher: " + mathClass.getTeacher().getTeacherName());
+        System.out.println("Students: " + mathClass.getStudents().size());
+    }
+}
+</code></pre>
+<h3>Output</h3>
+<pre class="code" style="padding: 2%;">
+Added student: John Doe
+Added student: Jane Doe
+Added teacher: Mr. Smith
+Created class: Math Class with teacher: Mr. Smith
+</pre>
+            <!-- previous next buttons -->
+            <!-- <div class="toggle-page-btns">
+                <a href="plsql2.html" class="button">Next &rarr;</a>
+            </div> -->
+        </div>
+    </div>
+    <footer>
+        Copyright &copy; 2023 Squirrel<span class="primary-color">Codes</span>
+    </footer>
+</body>
+
+</html>

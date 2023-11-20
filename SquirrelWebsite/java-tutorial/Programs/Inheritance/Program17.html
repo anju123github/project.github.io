@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Squirrel-Codes</title>
+    <link rel="stylesheet" href="../../../index.css">
+    <link rel="shortcut icon" href="../../../images/logo-dark.svg" type="image/x-icon">
+</head>
+
+<body>
+
+    <header class="sticky">
+        <a href="/index.html" class="webname">
+            <img src="../../../images/logo-dark.svg" alt="">
+            Squirrel<span class="primary-color">Codes</span>
+        </a>
+        <nav>
+            <a href="../../../index.html">Home</a>
+            <a href="../../../dbms-tutorial">DBMS</a>
+            <a href="../../plsql-tutorial/" class="active">PL/SQL</a>
+            <a href="../../java.html">Java</a>
+            <a href="../../../about.html">About</a>
+        </nav>
+    </header>
+
+    <h2 class="center tutorial">Java Tutorial</h2>
+    <hr>
+    <div class="content-box">
+        <div class="sidebar">
+            <a class="primary-color">Programs</a>
+            <a href="../../Programs/Inheritance/Program1.html" class="sidelinks sideactive">Program 1</a>
+            <a href="../../Programs/Inheritance/Program2.html" class="sidelinks sideactive">Program 2</a>
+            <a href="../../Programs/Inheritance/Program3.html" class="sidelinks sideactive">Program 3</a>
+            <a href="../../Programs/Inheritance/Program4.html" class="sidelinks sideactive">Program 4</a>
+            <a href="../../Programs/Inheritance/Program5.html" class="sidelinks sideactive">Program 5</a>
+            <a href="../../Programs/Inheritance/Program6.html" class="sidelinks sideactive">Program 6</a>
+            <a href="../../Programs/Inheritance/Program7.html" class="sidelinks sideactive">Program 7</a>
+            <a href="../../Programs/Inheritance/Program8.html" class="sidelinks sideactive">Program 8</a>
+            <a href="../../Programs/Inheritance/Program9.html" class="sidelinks sideactive">Program 9</a>
+            <a href="../../Programs/Inheritance/Program10.html" class="sidelinks sideactive">Program 10</a>
+            <a href="../../Programs/Inheritance/Program11.html" class="sidelinks sideactive">Program 11</a>
+            <a href="../../Programs/Inheritance/Program12.html" class="sidelinks sideactive">Program 12</a>
+            <a href="../../Programs/Inheritance/Program13.html" class="sidelinks sideactive">Program 13</a>
+            <a href="../../Programs/Inheritance/Program14.html" class="sidelinks sideactive">Program 14</a>
+            <a href="../../Programs/Inheritance/Program15.html" class="sidelinks sideactive">Program 15</a>
+            <a href="../../Programs/Inheritance/Program16.html" class="sidelinks sideactive">Program 16</a>
+            <a href="../../Programs/Inheritance/Program17.html" class="sidelinks sideactive">Program 17</a>
+            <a href="../../Programs/Inheritance/Program18.html" class="sidelinks sideactive">Program 18</a>
+            <a href="../../Programs/Inheritance/Program19.html" class="sidelinks sideactive">Program 19</a>
+            <a href="../../Programs/Inheritance/Program20.html" class="sidelinks sideactive">Program 20</a>
+            <a href="../../Programs/Inheritance/Program21.html" class="sidelinks sideactive">Program 21</a>
+            <a href="../../Programs/Inheritance/Program22.html" class="sidelinks sideactive">Program 22</a>
+            <a href="../../Programs/Inheritance/Program23.html" class="sidelinks sideactive">Program 23</a>
+            <a href="../../Programs/Inheritance/Program24.html" class="sidelinks sideactive">Program 24</a>
+            <a href="../../Programs/Inheritance/Program25.html" class="sidelinks sideactive">Program 25</a>
+            <a href="../../Programs/Inheritance/Program26.html" class="sidelinks sideactive">Program 26</a>
+            </div>
+        <div class="content">
+            <!-- topic name -->
+            <h3 class="main">Inheritance</h3>
+
+            <!-- Programs list -->
+            <p>17. Write a Java program to create an abstract class BankAccount with abstract methods deposit() and withdraw(). Create subclasses: SavingsAccount and CurrentAccount that extend the BankAccount class and implement the respective methods to handle deposits and withdrawals for each account type.</p>
+            <h3>Code</h3>
+            <pre class="code"><code class="language-java">
+                
+// Abstract class BankAccount
+abstract class BankAccount {
+    // Properties
+    protected String accountNumber;
+    protected double balance;
+                                        
+    // Constructor
+    public BankAccount(String accountNumber, double initialBalance) {
+        this.accountNumber = accountNumber;
+        this.balance = initialBalance;
+    }
+                                        
+    // Abstract methods
+    public abstract void deposit(double amount);
+    public abstract void withdraw(double amount);
+                                        
+    // Method to display account information
+    public void displayInfo() {
+        System.out.println("Account Number: " + accountNumber);
+        System.out.println("Balance: $" + balance);
+    }
+}
+                                        
+// Subclass SavingsAccount extending BankAccount
+class SavingsAccount extends BankAccount {
+    // Constructor
+    public SavingsAccount(String accountNumber, double initialBalance) {
+        super(accountNumber, initialBalance);
+    }
+                                        
+    // Implementing the deposit method for SavingsAccount
+    
+    public void deposit(double amount) {
+        balance += amount;
+        System.out.println("Deposited $" + amount + " into Savings Account");
+    }
+                                        
+    // Implementing the withdraw method for SavingsAccount
+    
+    public void withdraw(double amount) {
+        if (balance >= amount) {
+            balance -= amount;
+            System.out.println("Withdrawn $" + amount + " from Savings Account");
+        } else {
+            System.out.println("Insufficient funds in Savings Account");
+        }
+    }
+}
+                                        
+// Subclass CurrentAccount extending BankAccount
+class CurrentAccount extends BankAccount {
+    // Constructor
+    public CurrentAccount(String accountNumber, double initialBalance) {
+        super(accountNumber, initialBalance);
+    }
+                                        
+    // Implementing the deposit method for CurrentAccount
+    
+    public void deposit(double amount) {
+        balance += amount;
+        System.out.println("Deposited $" + amount + " into Current Account");
+    }
+                                        
+    // Implementing the withdraw method for CurrentAccount
+    
+    public void withdraw(double amount) {
+        // No withdrawal limit for Current Account
+        balance -= amount;
+        System.out.println("Withdrawn $" + amount + " from Current Account");
+    }
+}
+                                        
+// Main class
+public class AbstractBankAccountExample {
+    public static void main(String[] args) {
+        // Create instances of SavingsAccount and CurrentAccount
+        SavingsAccount savingsAccount = new SavingsAccount("SA123", 1000.0);
+        CurrentAccount currentAccount = new CurrentAccount("CA456", 2000.0);
+                                        
+        // Perform operations on the accounts
+        savingsAccount.displayInfo();
+        savingsAccount.deposit(500.0);
+        savingsAccount.withdraw(200.0);
+        savingsAccount.displayInfo();
+                                        
+        System.out.println(); // Empty line for clarity
+                                        
+        currentAccount.displayInfo();
+        currentAccount.deposit(1000.0);
+        currentAccount.withdraw(500.0);
+        currentAccount.displayInfo();
+    }
+}  
+</code></pre>
+<h3>Output</h3>
+<pre class="code" style="padding: 2%;">
+Account Number: SA123 
+
+Balance: $1000.0 
+
+Deposited $500.0 into Savings Account 
+
+Withdrawn $200.0 from Savings Account 
+
+Account Number: SA123 
+
+Balance: $1300.0 
+
+ 
+
+Account Number: CA456 
+
+Balance: $2000.0 
+
+Deposited $1000.0 into Current Account 
+
+Withdrawn $500.0 from Current Account 
+
+Account Number: CA456 
+
+Balance: $2500.0 
+</pre>
+            <!-- previous next buttons -->
+            <!-- <div class="toggle-page-btns">
+                <a href="plsql2.html" class="button">Next &rarr;</a>
+            </div> -->
+        </div>
+    </div>
+    <footer>
+        Copyright &copy; 2023 Squirrel<span class="primary-color">Codes</span>
+    </footer>
+</body>
+
+</html>
